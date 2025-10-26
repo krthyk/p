@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pocket Money Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#25D366",
+            "background-light": "#F9FAF5",
+            "background-dark": "#121212",
+            "text-light": "#111827",
+            "text-dark": "#F9FAFB",
+            "secondary-text-light": "#6B7280",
+            "secondary-text-dark": "#9CA3AF",
+            "icon-bg-light": "#F3F4F6",
+            "icon-bg-dark": "#1F2937"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            'xl': '0.75rem',
+          },
+        },
+      },
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .icon-hover:hover {
+      color: #25D366;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-text-light dark:text-text-dark">
+<div class="container mx-auto px-4 py-6">
+<header class="flex justify-between items-center mb-16 relative">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white">
+  <i class="fas fa-wallet text-sm"></i>
+</div>
+
+<span class="font-bold text-lg">Pocket Money Pro</span>
+</div>
+<nav class="hidden md:flex items-center space-x-8 text-sm text-secondary-text-light dark:text-secondary-text-dark">
+<a class="hover:text-text-light dark:hover:text-text-dark" href="#">About Us</a>
+<a class="hover:text-text-light dark:hover:text-text-dark" href="#">Privacy Policy</a>
+<a class="hover:text-text-light dark:hover:text-text-dark" href="#">Terms and Conditions</a>
+<a class="hover:text-text-light dark:hover:text-text-dark" href="#">Contact Us</a>
+<a class="hover:text-text-light dark:hover:text-text-dark" href="#">Share with your friends</a>
+<a class="hover:text-text-light dark:hover:text-text-dark" href="#">Support Us</a>
+</nav>
+<div class="flex items-center">
+<button class="p-2 rounded-full" id="darkModeToggle">
+<span class="material-symbols-outlined dark:hidden">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:inline">light_mode</span>
+</button>
+<button class="md:hidden p-2 rounded-full" id="menu-button">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<div class="hidden md:hidden absolute top-full right-0 mt-2 w-64 bg-background-light dark:bg-background-dark shadow-lg rounded-lg p-4 z-50" id="mobile-menu">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-bold text-lg">Menu</h3>
+<button class="p-2 rounded-full" id="close-menu-button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex flex-col space-y-2 text-sm text-secondary-text-light dark:text-secondary-text-dark">
+<a class="hover:text-text-light dark:hover:text-text-dark px-3 py-2 rounded-md" href="#">About Us</a>
+<a class="hover:text-text-light dark:hover:text-text-dark px-3 py-2 rounded-md" href="#">Privacy Policy</a>
+<a class="hover:text-text-light dark:hover:text-text-dark px-3 py-2 rounded-md" href="#">Terms and Conditions</a>
+<a class="hover:text-text-light dark:hover:text-text-dark px-3 py-2 rounded-md" href="#">Contact Us</a>
+<a class="hover:text-text-light dark:hover:text-text-dark px-3 py-2 rounded-md" href="#">Share with your friends</a>
+<a class="hover:text-text-light dark:hover:text-text-dark px-3 py-2 rounded-md" href="#">Support Us</a>
+</nav>
+</div>
+</header>
+<main class="max-w-3xl mx-auto">
+<section class="text-center mb-24">
+<h1 class="text-4xl md:text-5xl font-bold mb-4">Find apps that actually pays you</h1>
+<p class="text-secondary-text-light dark:text-secondary-text-dark mb-8">
+          Pocket Money Pro is an exclusive online community for ambitious individuals looking to master their finances, develop new skills, and connect with like-minded peers. We provide a supportive environment where members can learn, grow, and achieve their financial goals together.
+        </p>
+<div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 w-full">
+<a class="bg-primary text-white font-semibold py-3 px-6 rounded-full flex items-center justify-center space-x-2 w-full sm:w-auto" href="https://chat.whatsapp.com/your-group-link" target="_blank">
+<i class="fab fa-whatsapp text-xl"></i>
+<span>Join WhatsApp</span>
+</a>
+<a class="bg-blue-500 text-white font-semibold py-3 px-6 rounded-full flex items-center justify-center space-x-2 w-full sm:w-auto" href="https://t.me/your-channel-link" target="_blank">
+<i class="fab fa-telegram text-xl"></i>
+<span>Join Telegram</span>
+</a>
+</div>
+<p class="text-sm text-secondary-text-light dark:text-secondary-text-dark mt-4">100% free forever</p>
+<div class="mt-12 aspect-video">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="w-full h-full rounded-xl" frameborder="0" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player"></iframe>
+</div>
+<p class="text-sm text-secondary-text-light dark:text-secondary-text-dark mt-2">Video: A quick overview about Pocket Money Pro.</p>
+</section>
+<section class="text-left mb-24 max-w-xl mx-auto">
+<h2 class="text-2xl font-bold mb-8">Why join us?</h2>
+<ul class="space-y-6">
+<li class="flex items-center">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark rounded-full p-2 mr-4 icon-hover">group</span>
+<div>
+<h3 class="font-semibold">Networking</h3>
+</div>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark rounded-full p-2 mr-4 icon-hover">lightbulb</span>
+<div>
+<h3 class="font-semibold">Skill Development</h3>
+</div>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark rounded-full p-2 mr-4 icon-hover">work</span>
+<div>
+<h3 class="font-semibold">Career Opportunities</h3>
+</div>
+</li>
+<li class="flex items-center">
+<div class="bg-icon-bg-light dark:bg-icon-bg-dark rounded-lg p-2 mr-4 relative">
+<span class="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">31</span>
+<span class="material-symbols-outlined text-primary icon-hover">calendar_today</span>
+</div>
+<div>
+<h3 class="font-semibold">Exclusive Events</h3>
+</div>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark rounded-full p-2 mr-4 icon-hover">forum</span>
+<div>
+<h3 class="font-semibold">Supportive Community</h3>
+</div>
+</li>
+</ul>
+</section>
+<section class="text-left mb-24 max-w-xl mx-auto">
+<h2 class="text-2xl font-bold mb-8">Who can join?</h2>
+<ul class="space-y-6">
+<li class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark p-2 rounded-full icon-hover">school</span>
+<span class="font-semibold">Students</span>
+</li>
+<li class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark p-2 rounded-full icon-hover">code</span>
+<span class="font-semibold">Freelancers</span>
+</li>
+<li class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark p-2 rounded-full icon-hover">business_center</span>
+<span class="font-semibold">Self-employed</span>
+</li>
+<li class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark p-2 rounded-full icon-hover">rocket_launch</span>
+<span class="font-semibold">Entrepreneurs</span>
+</li>
+<li class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark p-2 rounded-full icon-hover">home</span>
+<span class="font-semibold">Housewives</span>
+</li>
+<li class="flex items-center space-x-4">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark p-2 rounded-full icon-hover">public</span>
+<span class="font-semibold">Anyone &amp; Everyone</span>
+</li>
+</ul>
+</section>
+<section class="max-w-xl mx-auto text-left mb-24">
+<h2 class="text-2xl font-bold mb-8">What you'll get?</h2>
+<ul class="space-y-6">
+<li class="flex items-center">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark rounded-full p-2 mr-4 icon-hover">savings</span>
+<div>
+<h3 class="font-semibold">Daily financial tips and tricks.</h3>
+</div>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark rounded-full p-2 mr-4 icon-hover">library_books</span>
+<div>
+<h3 class="font-semibold">Access to a curated library of resources.</h3>
+</div>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark rounded-full p-2 mr-4 icon-hover">groups</span>
+<div>
+<h3 class="font-semibold">Supportive community to discuss ideas.</h3>
+</div>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark rounded-full p-2 mr-4 icon-hover">mic</span>
+<div>
+<h3 class="font-semibold">Exclusive Q&amp;A sessions with experts.</h3>
+</div>
+</li>
+</ul>
+</section>
+<section class="max-w-xl mx-auto text-left mb-24">
+<h2 class="text-2xl font-bold mb-8">How it works</h2>
+<ul class="space-y-6">
+<li class="flex items-center">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark rounded-full p-2 mr-4 icon-hover">login</span>
+<span class="font-semibold">1. Join the community and get access to a list of verified apps that pay.</span>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark rounded-full p-2 mr-4 icon-hover">task</span>
+<span class="font-semibold">2. Follow instructions, complete tasks, and get paid.</span>
+</li>
+<li class="flex items-center">
+<span class="material-symbols-outlined text-primary bg-icon-bg-light dark:bg-icon-bg-dark rounded-full p-2 mr-4 icon-hover">social_leaderboard</span>
+<span class="font-semibold">3. Share your progress and learn from others to grow with the community.</span>
+</li>
+</ul>
+</section>
+<section class="max-w-xl mx-auto text-left mb-24">
+<h2 class="text-2xl font-bold mb-8">Follow also on:</h2>
+<ul class="space-y-6">
+<li class="flex items-start">
+<a class="flex items-center space-x-4" href="#">
+<i class="fab fa-youtube text-2xl text-primary bg-icon-bg-light dark:bg-icon-bg-dark p-2 rounded-full w-10 h-10 flex items-center justify-center icon-hover"></i>
+<span class="font-semibold text-text-light dark:text-text-dark">@pocketmoney_pro on YouTube</span>
+</a>
+</li>
+<li class="flex items-start">
+<a class="flex items-center space-x-4" href="#">
+<i class="fab fa-instagram text-2xl text-primary bg-icon-bg-light dark:bg-icon-bg-dark p-2 rounded-full w-10 h-10 flex items-center justify-center icon-hover"></i>
+<span class="font-semibold text-text-light dark:text-text-dark">@pocketmoney_pro on Instagram</span>
+</a>
+</li>
+<li class="flex items-start">
+<a class="flex items-center space-x-4" href="#">
+<i class="fab fa-facebook text-2xl text-primary bg-icon-bg-light dark:bg-icon-bg-dark p-2 rounded-full w-10 h-10 flex items-center justify-center icon-hover"></i>
+<span class="font-semibold text-text-light dark:text-text-dark">@pocketmoney_pro on Facebook</span>
+</a>
+</li>
+<li class="flex items-start">
+<a class="flex items-center space-x-4" href="#">
+<i class="fab fa-twitter text-2xl text-primary bg-icon-bg-light dark:bg-icon-bg-dark p-2 rounded-full w-10 h-10 flex items-center justify-center icon-hover"></i>
+<span class="font-semibold text-text-light dark:text-text-dark">@pocketmoney_pro on Twitter</span>
+</a>
+</li>
+</ul>
+</section>
+<section class="max-w-xl mx-auto text-left mb-24">
+<h2 class="text-2xl font-bold mb-8">FAQ</h2>
+<div class="space-y-4">
+<div>
+<h3 class="font-semibold">Is this really free?</h3>
+<p class="text-secondary-text-light dark:text-secondary-text-dark">Yes, joining our community and accessing our list of apps is 100% free. We believe in providing value without any hidden costs.</p>
+</div>
+<div>
+<h3 class="font-semibold">How much can I earn?</h3>
+<p class="text-secondary-text-light dark:text-secondary-text-dark">Earnings vary depending on the apps you use and the time you invest. We provide the resources, but your income is in your hands.</p>
+</div>
+<div>
+<h3 class="font-semibold">Are the apps safe to use?</h3>
+<p class="text-secondary-text-light dark:text-secondary-text-dark">We vet all apps before sharing them with our community. However, we always recommend you do your own research and read user reviews.</p>
+</div>
+</div>
+</section>
+<section class="max-w-xl mx-auto text-left mb-24 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+<h2 class="text-2xl font-bold mb-4">A Note from Mods:</h2>
+<p class="text-secondary-text-light dark:text-secondary-text-dark mb-6">
+          We're committed to building a fully functional, transparent platform that empowers everyone to generate income online. Your honest feedback and unwavering support are the cornerstones of our development. Every contribution, no matter how small, fuels our mission and brings us closer to our shared goal. We value your trust immensely and promise to always be transparent in our operations. Thank you for being a vital part of our journey.
+        </p>
+<div class="flex items-center space-x-4">
+<a class="bg-transparent border border-primary text-primary font-semibold py-1 px-3 rounded-full inline-flex items-center justify-center space-x-2 hover:bg-primary hover:text-white transition-colors text-sm" href="#">
+<i class="fas fa-heart"></i>
+<span>Support Us</span>
+</a>
+<a class="bg-primary text-white font-semibold py-1 px-3 rounded-full inline-flex items-center justify-center space-x-2 text-sm" href="#">
+<i class="fas fa-user-plus"></i>
+<span>Join Now</span>
+</a>
+</div>
+</section>
+</main>
+<footer class="text-center text-sm text-secondary-text-light dark:text-secondary-text-dark py-12">
+<p>Made with ♥ by Hustlers</p>
+</footer>
+</div>
+<script>
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const html = document.documentElement;
+    // Check for saved dark mode preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      html.classList.add('dark');
+    }
+    darkModeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      // Save preference to local storage
+      if (html.classList.contains('dark')) {
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+    const menuButton = document.getElementById('menu-button');
+    const closeMenuButton = document.getElementById('close-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    closeMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  </script>
+
+</body></html>
