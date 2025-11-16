@@ -39,6 +39,10 @@
         .carousel-container {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            cursor: grab;
+        }
+        .carousel-container:active {
+            cursor: grabbing;
         }
         #carousel-indicators .active {
             width: 1.5rem;}
@@ -67,19 +71,18 @@
         .dark .bg-slate-50, .dark .bg-slate-900\/50 { background-color: #020617; }
         .dark .border-black\/10 { border-color: rgba(248, 250, 252, 0.1); }
         .dark .hover\:bg-gradient-to-b:hover { background-image: linear-gradient(to bottom, transparent, rgba(248, 250, 252, 0.05)); }
-        .dark #story-carousel-container { background-color: transparent; }
-        .dark .border-slate-300, .dark .border-slate-700 { border-color: #334155; }
-        .dark .bg-white, .dark .dark\:bg-white { background-color: #000000; }
-        .dark .bg-black { background-color: #f8fafc; }
-        .dark .text-black { color: #f8fafc; }
-        .dark .text-white { color: #000000; }
-        .dark .fa-download { color: #000000 !important; }
         #story-carousel-container .story-card {
             display: none;
             animation: fadeIn 0.5s;
         }
         #story-carousel-container .story-card.active {
             display: flex;
+        }
+        #story-carousel-container {
+            cursor: grab;
+        }
+        #story-carousel-container:active {
+            cursor: grabbing;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -118,11 +121,10 @@
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
 <div class="layout-container flex h-full grow flex-col">
-<header class="fixed top-4 left-4 right-4 z-30 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm rounded-2xl shadow-lg shadow-slate-900/5">
-<div class="px-4 md:px-10 lg:px-20 flex justify-center">
-<div class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 w-full max-w-7xl py-3">
+<header class="fixed top-4 left-0 right-0 z-30 mx-auto w-[calc(100%-2rem)] max-w-7xl">
+<div class="px-4 md:px-6 flex items-center justify-between whitespace-nowrap w-full py-3 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm rounded-full shadow-lg shadow-slate-900/5">
 <div class="flex items-center gap-4 text-slate-900 dark:text-slate-50">
 <div class="size-8">
 <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
@@ -157,7 +159,6 @@
 <button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-50" id="menu-toggle">
 <span class="material-symbols-outlined">menu</span>
 </button>
-</div>
 </div>
 </div>
 </header>
@@ -207,18 +208,22 @@
                                 Discover exclusive internships, part-time jobs, and freelancing gigs. Connect with peers, join communities, and collaborate on exciting projects.
                             </p>
 </div>
-<div class="flex justify-center items-center gap-8 md:gap-12 lg:gap-16 py-8" id="stats-counter">
+<div class="grid grid-cols-2 md:grid-cols-4 justify-center items-start gap-8 md:gap-12 lg:gap-16 py-8" id="stats-counter">
 <div class="text-center">
-<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold" data-final="1M+" data-target="1000000">0</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Installations</p>
+<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold">30k+</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Students</p>
 </div>
 <div class="text-center">
-<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold" data-final="₹1Cr+" data-target="10000000">0</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Distributed</p>
+<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold">70L+</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Money<br/>Distributed</p>
 </div>
 <div class="text-center">
-<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold" data-final="310" data-target="310">0</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Partnerships Built</p>
+<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold">141+</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Opportunities<br/>listed</p>
+</div>
+<div class="text-center">
+<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold">310</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Partnerships<br/>built</p>
 </div>
 </div>
 <div class="flex justify-center">
@@ -366,7 +371,7 @@
 <h2 class="text-slate-900 dark:text-slate-50 font-bold text-3xl sm:text-4xl md:text-5xl tracking-[-0.015em]">Stories from our Community</h2>
 <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg md:text-xl max-w-3xl">See how students are making the most of Under 25. Inspiring journeys, real experiences.</p>
 </div>
-<div class="w-full max-w-4xl mx-auto pt-8" id="story-carousel-container">
+<div class="w-full max-w-4xl mx-auto pt-8 relative overflow-hidden" id="story-carousel-container">
 <div class="story-card w-full p-6 rounded-xl border border-slate-200 dark:border-slate-800 active dark:bg-transparent">
 <div class="flex flex-col h-full justify-between">
 <div>
@@ -556,14 +561,16 @@
         }
         menuToggle.addEventListener('click', toggleMenu);
         closeMenuButton.addEventListener('click', toggleMenu);
-        // Main Carousel
+        // Main Carousel with Swipe
         const carouselWrapper = document.getElementById('carousel-wrapper');
         const carouselContainer = carouselWrapper.querySelector('.carousel-container');
         const carouselItems = carouselWrapper.querySelectorAll('.carousel-item');
         const carouselIndicators = document.getElementById('carousel-indicators');
         let mainCurrentIndex = 0;
         let mainIntervalId;
+        let startX, isDragging = false, dragThreshold = 50;
         function updateMainCarousel() {
+            carouselContainer.style.transition = 'transform 0.5s ease-in-out';
             carouselContainer.style.transform = `translateX(-${mainCurrentIndex * 100}%)`;
             if (carouselIndicators) {
                 const indicators = carouselIndicators.children;
@@ -600,15 +607,59 @@
             clearInterval(mainIntervalId);
             startMainInterval();
         }
+        carouselContainer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - carouselContainer.offsetLeft;
+            carouselContainer.style.transition = 'none';
+            clearInterval(mainIntervalId);
+        });
+        carouselContainer.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            startX = e.touches[0].pageX - carouselContainer.offsetLeft;
+            carouselContainer.style.transition = 'none';
+            clearInterval(mainIntervalId);
+        });
+        const handleDragEnd = () => {
+             if (!isDragging) return;
+            isDragging = false;
+            const currentTranslate = new WebKitCSSMatrix(window.getComputedStyle(carouselContainer).transform).m41;
+            const threshold = carouselItems[0].offsetWidth * 0.35;
+            const originalTranslate = -mainCurrentIndex * carouselItems[0].offsetWidth;
+            const diff = currentTranslate - originalTranslate;
+            if (diff < -threshold) {
+                mainCurrentIndex = (mainCurrentIndex + 1) % carouselItems.length;
+            } else if (diff > threshold) {
+                mainCurrentIndex = (mainCurrentIndex - 1 + carouselItems.length) % carouselItems.length;
+            }
+            updateMainCarousel();
+            startMainInterval();
+        };
+        carouselContainer.addEventListener('mouseup', handleDragEnd);
+        carouselContainer.addEventListener('mouseleave', handleDragEnd);
+        carouselContainer.addEventListener('touchend', handleDragEnd);
+        carouselContainer.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - carouselContainer.offsetLeft;
+            const walk = (x - startX);
+            carouselContainer.style.transform = `translateX(${-mainCurrentIndex * 100}% + ${walk}px)`;
+        });
+        carouselContainer.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const x = e.touches[0].pageX - carouselContainer.offsetLeft;
+            const walk = x - startX;
+            carouselContainer.style.transform = `translateX(${-mainCurrentIndex * 100}% + ${walk}px)`;
+        });
         createMainIndicators();
         updateMainCarousel();
         startMainInterval();
-        // Story Carousel
+        // Story Carousel with Swipe
         const storyCarouselContainer = document.getElementById('story-carousel-container');
         if (storyCarouselContainer) {
             const storyCards = storyCarouselContainer.querySelectorAll('.story-card');
             let storyCurrentIndex = 0;
             let storyIntervalId;
+            let storyStartX, isStoryDragging = false;
             function showStoryCard(index) {
                 storyCards.forEach((card, i) => {
                     card.classList.toggle('active', i === index);
@@ -618,14 +669,43 @@
                 storyCurrentIndex = (storyCurrentIndex + 1) % storyCards.length;
                 showStoryCard(storyCurrentIndex);
             }
+            function prevStoryCard() {
+                storyCurrentIndex = (storyCurrentIndex - 1 + storyCards.length) % storyCards.length;
+                showStoryCard(storyCurrentIndex);
+            }
             function startStoryInterval() {
                 storyIntervalId = setInterval(nextStoryCard, 5000);
             }
             function stopStoryInterval() {
                 clearInterval(storyIntervalId);
             }
-            storyCarouselContainer.addEventListener('mouseenter', stopStoryInterval);
-            storyCarouselContainer.addEventListener('mouseleave', startStoryInterval);
+            storyCarouselContainer.addEventListener('mousedown', (e) => {
+                isStoryDragging = true;
+                storyStartX = e.pageX;
+                stopStoryInterval();
+            });
+            storyCarouselContainer.addEventListener('touchstart', (e) => {
+                isStoryDragging = true;
+                storyStartX = e.touches[0].pageX;
+                stopStoryInterval();
+            });
+            const handleStoryDragEnd = (e) => {
+                if (!isStoryDragging) return;
+                isStoryDragging = false;
+                const endX = e.pageX || e.changedTouches[0].pageX;
+                const diff = storyStartX - endX;
+                if (diff > 50) { // Swipe left
+                    nextStoryCard();
+                } else if (diff < -50) { // Swipe right
+                    prevStoryCard();
+                }
+                startStoryInterval();
+            };
+            storyCarouselContainer.addEventListener('mouseup', handleStoryDragEnd);
+            storyCarouselContainer.addEventListener('mouseleave', (e) => {
+                if (isStoryDragging) handleStoryDragEnd(e);
+            });
+            storyCarouselContainer.addEventListener('touchend', handleStoryDragEnd);
             showStoryCard(storyCurrentIndex);
             startStoryInterval();
         }
@@ -643,46 +723,6 @@
                     item.classList.toggle('active');
                 });
             });
-        }
-        // Animated Counter
-        const statsCounter = document.getElementById('stats-counter');
-        function animateCounter(element, target, finalDisplay) {
-            const duration = 2000; 
-            const start = 0;
-            let startTime = null;
-            function animation(currentTime) {
-                if (startTime === null) startTime = currentTime;
-                const progress = Math.min((currentTime - startTime) / duration, 1);
-                const currentValue = Math.floor(progress * (target - start) + start);
-                element.innerHTML = currentValue.toLocaleString();
-                if (progress < 1) {
-                    requestAnimationFrame(animation);
-                } else {
-                    element.innerHTML = finalDisplay;
-                }
-            }
-            requestAnimationFrame(animation);
-        }
-        function startCounters() {
-            const counters = statsCounter.querySelectorAll('h3[data-target]');
-            counters.forEach(counter => {
-                const target = parseInt(counter.dataset.target);
-                const finalDisplay = counter.dataset.final;
-                animateCounter(counter, target, finalDisplay);
-            });
-        }
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    startCounters();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.5
-        });
-        if (statsCounter) {
-            observer.observe(statsCounter);
         }
     </script>
 </body></html>
