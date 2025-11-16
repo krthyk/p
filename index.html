@@ -188,6 +188,12 @@
 <main class="flex-1 pt-32">
 <div class="px-4 md:px-10 lg:px-20 flex flex-1 justify-center py-5">
 <div class="layout-content-container flex flex-col w-full flex-1 gap-6">
+<div class="text-center space-y-4 px-4 py-8">
+<h1 class="text-slate-900 dark:text-slate-50 tracking-tight text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">India's largest students networking app</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-3xl mx-auto">
+                                Discover exclusive internships, part-time jobs, and freelancing gigs. Connect with peers, join communities, and collaborate on exciting projects.
+                            </p>
+</div>
 <div class="relative w-full mx-auto overflow-hidden rounded-xl" id="carousel-wrapper">
 <div class="carousel-container">
 <div class="carousel-item relative overflow-hidden">
@@ -202,27 +208,21 @@
 </div>
 <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2" id="carousel-indicators"></div>
 </div>
-<div class="text-center space-y-4 px-4 py-8">
-<h1 class="text-slate-900 dark:text-slate-50 tracking-tight text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">India's largest students networking app</h1>
-<p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-3xl mx-auto">
-                                Discover exclusive internships, part-time jobs, and freelancing gigs. Connect with peers, join communities, and collaborate on exciting projects.
-                            </p>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-4 justify-center items-start gap-8 md:gap-12 lg:gap-16 py-8" id="stats-counter">
+<div class="grid grid-cols-2 md:grid-cols-4 justify-center items-start gap-4 md:gap-8 lg:gap-12 py-8" id="stats-counter">
 <div class="text-center">
-<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold">30k+</h3>
+<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold stat-number" data-target="30000">0</h3>
 <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Students</p>
 </div>
 <div class="text-center">
-<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold">70L+</h3>
+<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold stat-number" data-target="7000000">0</h3>
 <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Money<br/>Distributed</p>
 </div>
 <div class="text-center">
-<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold">141+</h3>
+<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold stat-number" data-target="141">0</h3>
 <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Opportunities<br/>listed</p>
 </div>
 <div class="text-center">
-<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold">310</h3>
+<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold stat-number" data-target="310">0</h3>
 <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Partnerships<br/>built</p>
 </div>
 </div>
@@ -497,7 +497,7 @@
 <img alt="Under 25 Community Logo" class="h-10 w-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD32VrImxCVitCOMI38CbLrPI1KbuXEO8QAqgtgmHMMoV_jVCRVBfZF52hJ-WhMVI0S8jSkgZ-B7VG0uktehYpxU8EMaMgB6OOv4PBYNVV-l72lbCyBXLOWrntmjlpo3giS_qJP8NGlM3wzqSiRrbFYXuQ65WOmMl_N5XjE50EM1AUN2whr0Qbo7n-dVYFgLJNzdn12ASSi31uJrITkMO0DgnAoyZHQaj357Qx_c7162VqRETcL-GjSfbYeoHXPAxGF8hr9akP-LC8"/>
 <span class="text-slate-900 dark:text-slate-50 text-xl font-bold">Under 25 Community</span>
 </div>
-<p class="text-slate-600 dark:text-slate-400 text-base">The ultimate app for students to earn, learn, and connect. Find opportunities, build your skills, and join a vibrant community of learners and doers.</p>
+<p class="text-slate-600 dark:text-slate-400 text-base">The ultimate app for students to earn, learn, and connect. Find opportunities, build your skills, and join a vibrant community of learners and doers. © 2024 Under 25 Community. All rights reserved.</p>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
 <div>
@@ -536,7 +536,7 @@
 </div>
 </div>
 <div class="border-t border-slate-200 dark:border-slate-800 mt-12 pt-8 text-center text-slate-600 dark:text-slate-400 text-sm">
-<p>© 2024 Under 25 Community. All rights reserved.</p>
+<p>Made with ❤️ for explorers, by explorers</p>
 </div>
 </div>
 </div>
@@ -568,19 +568,19 @@
         const carouselIndicators = document.getElementById('carousel-indicators');
         let mainCurrentIndex = 0;
         let mainIntervalId;
-        let startX, isDragging = false, dragThreshold = 50;
+        let startX, isDragging = false;
         function updateMainCarousel() {
-            carouselContainer.style.transition = 'transform 0.5s ease-in-out';
             carouselContainer.style.transform = `translateX(-${mainCurrentIndex * 100}%)`;
             if (carouselIndicators) {
                 const indicators = carouselIndicators.children;
                 for (let i = 0; i < indicators.length; i++) {
-                    indicators[i].classList.toggle('active', i === mainCurrentIndex);
+                    const isActive = i === mainCurrentIndex;
+                    indicators[i].classList.toggle('active', isActive);
                     const isDark = htmlElement.classList.contains('dark');
                     const activeColor = isDark ? 'bg-white' : 'bg-black';
                     const inactiveColor = 'bg-gray-400';
-                    indicators[i].classList.toggle(activeColor, i === mainCurrentIndex);
-                    indicators[i].classList.toggle(inactiveColor, i !== mainCurrentIndex);
+                    indicators[i].classList.toggle(activeColor, isActive);
+                    indicators[i].classList.toggle(inactiveColor, !isActive);
                 }
             }
         }
@@ -607,49 +607,46 @@
             clearInterval(mainIntervalId);
             startMainInterval();
         }
-        carouselContainer.addEventListener('mousedown', (e) => {
+        const handleDragStart = (e) => {
             isDragging = true;
-            startX = e.pageX - carouselContainer.offsetLeft;
+            startX = (e.touches ? e.touches[0].pageX : e.pageX) - carouselContainer.offsetLeft;
             carouselContainer.style.transition = 'none';
             clearInterval(mainIntervalId);
-        });
-        carouselContainer.addEventListener('touchstart', (e) => {
-            isDragging = true;
-            startX = e.touches[0].pageX - carouselContainer.offsetLeft;
-            carouselContainer.style.transition = 'none';
-            clearInterval(mainIntervalId);
-        });
-        const handleDragEnd = () => {
-             if (!isDragging) return;
+            carouselContainer.style.cursor = 'grabbing';
+        };
+        const handleDragMove = (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = (e.touches ? e.touches[0].pageX : e.pageX) - carouselContainer.offsetLeft;
+            const walk = (x - startX);
+            const currentTranslate = -mainCurrentIndex * carouselContainer.offsetWidth;
+            carouselContainer.style.transform = `translateX(${currentTranslate + walk}px)`;
+        };
+        const handleDragEnd = (e) => {
+            if (!isDragging) return;
             isDragging = false;
+            carouselContainer.style.cursor = 'grab';
             const currentTranslate = new WebKitCSSMatrix(window.getComputedStyle(carouselContainer).transform).m41;
             const threshold = carouselItems[0].offsetWidth * 0.35;
             const originalTranslate = -mainCurrentIndex * carouselItems[0].offsetWidth;
             const diff = currentTranslate - originalTranslate;
-            if (diff < -threshold) {
-                mainCurrentIndex = (mainCurrentIndex + 1) % carouselItems.length;
-            } else if (diff > threshold) {
-                mainCurrentIndex = (mainCurrentIndex - 1 + carouselItems.length) % carouselItems.length;
+            if (diff < -threshold && mainCurrentIndex < carouselItems.length - 1) {
+                mainCurrentIndex++;
+            } else if (diff > threshold && mainCurrentIndex > 0) {
+                mainCurrentIndex--;
             }
+            carouselContainer.style.transition = 'transform 0.5s ease-in-out';
+            carouselContainer.style.transform = `translateX(-${mainCurrentIndex * 100}%)`;
             updateMainCarousel();
             startMainInterval();
         };
-        carouselContainer.addEventListener('mouseup', handleDragEnd);
+        carouselContainer.addEventListener('mousedown', handleDragStart);
+        carouselContainer.addEventListener('touchstart', handleDragStart, { passive: true });
+        carouselContainer.addEventListener('mousemove', handleDragMove);
+        carouselContainer.addEventListener('touchmove', handleDragMove, { passive: false });
+        document.addEventListener('mouseup', handleDragEnd);
         carouselContainer.addEventListener('mouseleave', handleDragEnd);
         carouselContainer.addEventListener('touchend', handleDragEnd);
-        carouselContainer.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            const x = e.pageX - carouselContainer.offsetLeft;
-            const walk = (x - startX);
-            carouselContainer.style.transform = `translateX(${-mainCurrentIndex * 100}% + ${walk}px)`;
-        });
-        carouselContainer.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            const x = e.touches[0].pageX - carouselContainer.offsetLeft;
-            const walk = x - startX;
-            carouselContainer.style.transform = `translateX(${-mainCurrentIndex * 100}% + ${walk}px)`;
-        });
         createMainIndicators();
         updateMainCarousel();
         startMainInterval();
@@ -723,6 +720,53 @@
                     item.classList.toggle('active');
                 });
             });
+        }
+        // Statistics Counter Animation
+        function animateStats() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200; // The lower the slower
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText.replace(/,/g, '');
+                    const inc = target / speed;
+                    if (count < target) {
+                        const newCount = Math.ceil(count + inc);
+                        if (target === 30000) {
+                            counter.innerText = (newCount > target ? target : newCount).toLocaleString() + 'k+';
+                            if (newCount >= target) counter.innerText = "30k+";
+                        } else if (target === 7000000) {
+                            counter.innerText = (newCount > target ? target : newCount).toLocaleString() + 'L+';
+                             if (newCount >= target) counter.innerText = "70L+";
+                        } else if (target === 141) {
+                             counter.innerText = (newCount > target ? target : newCount).toLocaleString() + '+';
+                             if (newCount >= target) counter.innerText = "141+";
+                        } else {
+                            counter.innerText = (newCount > target ? target : newCount).toLocaleString();
+                             if (newCount >= target) counter.innerText = "310";
+                        }
+                        setTimeout(updateCount, 15);
+                    } else {
+                        if (target === 30000) counter.innerText = "30k+";
+                        else if (target === 7000000) counter.innerText = "70L+";
+                        else if (target === 141) counter.innerText = "141+";
+                        else counter.innerText = target.toLocaleString();
+                    }
+                };
+                updateCount();
+            });
+        }
+        const statsSection = document.getElementById('stats-counter');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        if (statsSection) {
+            observer.observe(statsSection);
         }
     </script>
 </body></html>
