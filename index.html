@@ -42,6 +42,9 @@
     .dark #made-with-love-box {
         background-color: transparent;
     }
+    .dark .dropdown-menu {
+        background-color: #000000;
+    }
   </style>
 <script>
     tailwind.config = {
@@ -96,24 +99,20 @@
 <span class="light-text hidden">Light Mode</span>
 </button>
 </nav>
-<div class="md:hidden">
+<div class="md:hidden flex items-center gap-2">
+<button class="p-2 text-slate-800 dark:text-slate-200" id="dark-mode-toggle-mobile-icon">
+<span class="material-icons-outlined dark-icon">dark_mode</span>
+<span class="material-icons-outlined light-icon hidden">light_mode</span>
+</button>
 <div class="peer">
 <button class="p-2 text-slate-800 dark:text-slate-200">
 <span class="material-icons-outlined">menu</span>
 </button>
 </div>
-<div class="dropdown-menu hidden absolute left-0 top-full mt-2 w-full bg-white dark:bg-slate-800 rounded-md shadow-lg border border-slate-200 dark:border-slate-700 z-10">
+<div class="dropdown-menu hidden absolute left-0 top-full mt-2 w-full bg-white dark:bg-black rounded-md shadow-lg border border-slate-200 dark:border-slate-700 z-10">
 <a class="block px-4 py-3 text-sm text-slate-700 dark:text-slate-300" href="#">About</a>
 <a class="block px-4 py-3 text-sm text-slate-700 dark:text-slate-300" href="#">Contribute</a>
 <a class="block px-4 py-3 text-sm text-slate-700 dark:text-slate-300 share-button" href="#">Share</a>
-<div class="px-4 py-3">
-<button class="w-full px-3.5 py-1.5 rounded-full bg-primary text-white text-sm font-medium hover:bg-opacity-90 flex items-center justify-center gap-2 whitespace-nowrap" id="dark-mode-toggle-mobile">
-<span class="material-icons-outlined text-lg dark-icon">dark_mode</span>
-<span class="material-icons-outlined text-lg light-icon hidden">light_mode</span>
-<span class="dark-text">Dark Mode</span>
-<span class="light-text hidden">Light Mode</span>
-</button>
-</div>
 </div>
 </div>
 </header>
@@ -150,14 +149,7 @@
 <span class="material-icons-outlined" style="font-size: 16px;">auto_awesome</span>
 <span>AI generated image</span>
 </div>
-<button class="copy-button w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer bg-transparent text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-<span class="copy-text">Click to copy</span>
-<span class="copy-icon material-icons-outlined" style="font-size: 16px;">content_copy</span>
-<span class="copied-text hidden items-center gap-1">
-<span>Copied</span>
-<span class="material-icons-outlined" style="font-size: 16px;">check</span>
-</span>
-</button>
+<span class="copy-text text-sm text-slate-500 dark:text-slate-400 cursor-pointer">Click to copy</span>
 </div>
 </div>
 </div>
@@ -165,37 +157,38 @@
 </div>
 </main>
 <div class="mt-16 w-full max-w-4xl mx-auto">
-<div class="aspect-video sm:aspect-[4/1] rounded-lg overflow-hidden">
-<img alt="Advertisement" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0fh6zUVLrEnLRNwzsqK7mp7Xi6z4fA_bKhvqFQU-W8j7LENi6qrJESpY8Zqhrps2Gpf5eZFAXQrxEYIrv3hvcL1X5nBTpqC5-mCiVSdJb1k1Lpx06-crm6TZJIQoOft6xKlOoqA621IxmGPofBS1Jr-85QQHIf6zqQHkVWCKwr3tsIyj7np3vLjBTXqK9MjP7QTlhH3IFPQwtB8gcRs7OqfFliEUzi84mbleMPWJWiLb-XUZ1vPDL_f22Xdauw9JqX-Br9g5G8z8"/>
+<div class="aspect-video sm:aspect-[4/1] rounded-lg overflow-hidden bg-slate-200 dark:bg-slate-800">
+<img alt="Advertisement" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_EpTP5jyT-G0sNBq2yDbykKuqvn8GO6tUNXliTaI9QEEaWDOV_vwXPx9f5GDsatNQhspSiottngFMqhnrf-EPOmF10GnT97YLnkL2irra0UZKz1FZaAAOHQP2zeIWvRAJteGfl4NB81M0SHSM_NhvR8sCBxAhf-IyHFi10R28GyN53VnJFTp8AL6vFYMUMPLSmpB61vtwJAiiT2PT6geBPQpeUAaiA8c24qmO_URYrLJ8O_Io1drToanPLpEl8UOlBW_toUrGyyU"/>
 </div>
 </div>
 </div>
-<footer class="mt-8 container mx-auto px-4 sm:px-6 lg:px-8">
-<div class="bg-transparent border border-slate-200 dark:border-slate-800 rounded-lg py-2 px-4 flex flex-col sm:flex-row sm:justify-between items-center text-slate-500 dark:text-slate-400 gap-2">
-<div class="text-center sm:text-left text-[11px]">
+<footer class="mt-8 mb-4 container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-transparent border border-slate-200 dark:border-slate-800 rounded-lg py-4 px-6 flex flex-col sm:flex-row sm:justify-between items-center text-slate-500 dark:text-slate-400 gap-4 sm:gap-2">
+<div class="text-center sm:text-left text-sm">
 <p>Made with love ❤️ for photophiles</p>
-<p class="mt-0.5">Copyright © 2025. All rights reserved.</p>
 </div>
-<div class="flex items-center gap-3">
-<a class="text-slate-400 hover-instagram transition-colors" href="#"><i class="fa-brands fa-instagram text-xs"></i></a>
-<a class="text-slate-400 hover-linkedin transition-colors" href="#"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
-<a class="text-slate-400 hover-youtube transition-colors" href="#"><i class="fa-brands fa-youtube text-xs"></i></a>
-<a class="text-slate-400 hover-website transition-colors" href="#"><i class="fa-solid fa-globe text-xs"></i></a>
-<a class="text-slate-400 hover-gmail transition-colors" href="mailto:random@gmail.com"><i class="fa-solid fa-envelope text-xs"></i></a>
+<div class="flex items-center gap-4">
+<a class="text-slate-400 hover-instagram transition-colors" href="#"><i class="fa-brands fa-instagram text-base"></i></a>
+<a class="text-slate-400 hover-linkedin transition-colors" href="#"><i class="fa-brands fa-linkedin-in text-base"></i></a>
+<a class="text-slate-400 hover-youtube transition-colors" href="#"><i class="fa-brands fa-youtube text-base"></i></a>
+<a class="text-slate-400 hover-website transition-colors" href="#"><i class="fa-solid fa-globe text-base"></i></a>
+<a class="text-slate-400 hover-gmail transition-colors" href="mailto:random@gmail.com"><i class="fa-solid fa-envelope text-base"></i></a>
 </div>
 </div>
 </footer>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Dark Mode Toggle
-        const darkModeToggles = document.querySelectorAll('#dark-mode-toggle-desktop, #dark-mode-toggle-mobile');
+        const desktopToggle = document.getElementById('dark-mode-toggle-desktop');
+        const mobileIconToggle = document.getElementById('dark-mode-toggle-mobile-icon');
         const htmlEl = document.documentElement;
-        function updateDarkModeUI(isDark) {
-            darkModeToggles.forEach(toggle => {
-                const darkIcon = toggle.querySelector('.dark-icon');
-                const lightIcon = toggle.querySelector('.light-icon');
-                const darkText = toggle.querySelector('.dark-text');
-                const lightText = toggle.querySelector('.light-text');
+        function updateAllDarkModeUIs(isDark) {
+            // Desktop button
+            if (desktopToggle) {
+                const darkIcon = desktopToggle.querySelector('.dark-icon');
+                const lightIcon = desktopToggle.querySelector('.light-icon');
+                const darkText = desktopToggle.querySelector('.dark-text');
+                const lightText = desktopToggle.querySelector('.light-text');
                 if (isDark) {
                     darkIcon.classList.add('hidden');
                     darkText.classList.add('hidden');
@@ -207,41 +200,48 @@
                     lightIcon.classList.add('hidden');
                     lightText.classList.add('hidden');
                 }
-            });
+            }
+             // Mobile icon
+            if (mobileIconToggle) {
+                const darkIcon = mobileIconToggle.querySelector('.dark-icon');
+                const lightIcon = mobileIconToggle.querySelector('.light-icon');
+                if (isDark) {
+                    darkIcon.classList.add('hidden');
+                    lightIcon.classList.remove('hidden');
+                } else {
+                    darkIcon.classList.remove('hidden');
+                    lightIcon.classList.add('hidden');
+                }
+            }
         }
         const isDarkMode = localStorage.getItem('darkMode') === 'true';
         if (isDarkMode) {
             htmlEl.classList.add('dark');
         }
-        updateDarkModeUI(isDarkMode);
+        updateAllDarkModeUIs(isDarkMode);
         function toggleDarkMode() {
             const isCurrentlyDark = htmlEl.classList.toggle('dark');
             localStorage.setItem('darkMode', isCurrentlyDark);
-            updateDarkModeUI(isCurrentlyDark);
+            updateAllDarkModeUIs(isCurrentlyDark);
         }
-        darkModeToggles.forEach(toggle => {
-            toggle.addEventListener('click', toggleDarkMode);
-        });
-      // Copy button functionality
-      const copyButton = document.querySelector('.copy-button');
-      if(copyButton) {
-        copyButton.addEventListener('click', (e) => {
+        if (desktopToggle) {
+            desktopToggle.addEventListener('click', toggleDarkMode);
+        }
+        if (mobileIconToggle) {
+            mobileIconToggle.addEventListener('click', toggleDarkMode);
+        }
+      // Copy text functionality
+      const copyTextElement = document.querySelector('.copy-text');
+      if(copyTextElement) {
+        copyTextElement.addEventListener('click', () => {
           const promptTextElement = document.getElementById('prompt-text');
           if (promptTextElement) {
             const promptText = promptTextElement.textContent;
             navigator.clipboard.writeText(promptText).then(() => {
-              const copyText = copyButton.querySelector('.copy-text');
-              const copyIcon = copyButton.querySelector('.copy-icon');
-              const copiedText = copyButton.querySelector('.copied-text');
-              copyText.classList.add('hidden');
-              copyIcon.classList.add('hidden');
-              copiedText.classList.remove('hidden');
-              copiedText.classList.add('inline-flex');
+              const originalText = copyTextElement.textContent;
+              copyTextElement.textContent = 'Copied!';
               setTimeout(() => {
-                copyText.classList.remove('hidden');
-                copyIcon.classList.remove('hidden');
-                copiedText.classList.add('hidden');
-                copiedText.classList.remove('inline-flex');
+                copyTextElement.textContent = originalText;
               }, 2000);
             }).catch(err => {
               console.error('Failed to copy text: ', err);
@@ -268,4 +268,5 @@
       });
     });
   </script>
+
 </body></html>
