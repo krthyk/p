@@ -1,780 +1,271 @@
 <!DOCTYPE html>
-<html class="light" lang="en" style="scroll-behavior: smooth;"><head>
+<html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Under 25 Community</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<title>Prompt Detail</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" referrerpolicy="no-referrer" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<style type="text/tailwindcss">
+    @layer utilities {
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    }
+    .hover-instagram:hover {
+      color: #E4405F;
+    }
+    .hover-linkedin:hover {
+      color: #0A66C2;
+    }
+    .hover-youtube:hover {
+      color: #FF0000;
+    }
+    .hover-website:hover {
+      color: #3B82F6;
+    }
+    .hover-gmail:hover {
+      color: #EA4335;
+    }
+    .dark .prompt-card {
+        background-color: transparent;
+        border-color: #334155;
+    }
+    .dark .promo-card {
+        background-color: #1e293b;
+    }
+    .dark #made-with-love-box {
+        background-color: transparent;
+    }
+  </style>
 <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "primary": "#000000",
-              "background-light": "#ffffff",
-              "background-dark": "#000000",
-            },
-            fontFamily: {
-              "display": ["Manrope", "sans-serif"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#374151", 
+            "background-light": "#FFFFFF",
+            "background-dark": "#000000",
+          },
+          fontFamily: {
+            display: ["Plus Jakarta Sans", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.75rem", 
           },
         },
-      }
-    </script>
+      },
+    };
+  </script>
 <style>
-        .carousel-item {
-            flex: 0 0 100%;
-            transition: transform 0.5s ease-in-out;
-        }
-        .carousel-item img {
-            transition: transform 0.3s ease;
-        }
-        .carousel-item:hover img {
-            transform: scale(1.05);
-        }
-        .carousel-container {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            cursor: grab;
-        }
-        .carousel-container:active {
-            cursor: grabbing;
-        }
-        #carousel-indicators .active {
-            width: 1.5rem;}
-        body {
-            background-color: #ffffff;
-            color: #000000;
-        }
-        .dark body {
-             background-color: #000000;
-             color: #ffffff;
-        }
-        .dark .text-slate-900, .dark .text-slate-50 { color: #f8fafc; }
-        .dark .text-slate-700, .dark .text-slate-300 { color: #cbd5e1; }
-        .dark .text-slate-600, .dark .text-slate-400 { color: #94a3b8; }
-        .bg-background-light, .dark .bg-background-dark { background-color: #ffffff; }
-        .dark .bg-background-dark { background-color: #000000; }
-        .dark .border-slate-200, .dark .border-slate-800 { border-color: #1e293b; }
-        .dark .bg-slate-200, .dark .bg-slate-800 { background-color: #1e293b; }
-        .dark .hover\:text-primary:hover { color: #f8fafc; }
-        .dark .bg-primary { background-color: #f8fafc; }
-        .dark .text-white { color: #000000; }
-        .dark .bg-primary\/10 { background-color: rgba(248, 250, 252, 0.1); }
-        .dark .text-primary { color: #f8fafc; }
-        .dark .material-symbols-outlined, .dark .fa-solid { color: #f8fafc !important; }
-        header .dark .text-slate-900, header .dark .text-slate-50 { color: #f8fafc; }
-        .dark .bg-slate-50, .dark .bg-slate-900\/50 { background-color: #020617; }
-        .dark .border-black\/10 { border-color: rgba(248, 250, 252, 0.1); }
-        .dark .hover\:bg-gradient-to-b:hover { background-image: linear-gradient(to bottom, transparent, rgba(248, 250, 252, 0.05)); }
-        #story-carousel-container .story-card {
-            display: none;
-            animation: fadeIn 0.5s;
-        }
-        #story-carousel-container .story-card.active {
-            display: flex;
-        }
-        #story-carousel-container {
-            cursor: grab;
-        }
-        #story-carousel-container:active {
-            cursor: grabbing;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .faq-item .answer {
-            display: none;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        .faq-item.active .answer {
-            display: block;
-            max-height: 1000px;}
-        .faq-item .icon {
-            transition: transform 0.3s;
-        }
-        .faq-item.active .icon {
-            transform: rotate(180deg);
-        }
-        #mobile-menu {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        #mobile-menu.open {
-            transform: translateX(0);
-        }
-        .scrolling-logos {
-            display: flex;
-            animation: scroll 20s linear infinite;
-        }
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-    </style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .material-icons-outlined {
+      font-size: 24px;
+    }
+    .peer:focus-within + .dropdown-menu,
+    .dropdown-menu:hover {
+      display: block;
+    }
+  </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display">
-<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-<div class="layout-container flex h-full grow flex-col">
-<header class="fixed top-4 left-0 right-0 z-30 mx-auto w-[calc(100%-2rem)] max-w-7xl">
-<div class="px-4 md:px-6 flex items-center justify-between whitespace-nowrap w-full py-3 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm rounded-full shadow-lg shadow-slate-900/5">
-<div class="flex items-center gap-4 text-slate-900 dark:text-slate-50">
-<div class="size-8">
-<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200 flex flex-col min-h-screen">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+<header class="flex justify-between items-center mb-8 py-4 relative">
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-3" href="#">
+<span class="material-icons-outlined text-primary dark:text-white text-3xl">filter_vintage</span>
+<span class="text-2xl font-bold text-slate-900 dark:text-white">AI image prompts</span>
+</a>
 </div>
-<h2 class="text-slate-900 dark:text-slate-50 text-lg font-bold leading-tight tracking-[-0.015em]">Under 25 Community</h2>
-</div>
-<div class="hidden lg:flex flex-1 justify-end items-center gap-6">
-<nav class="flex items-center gap-6">
-<a class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary dark:hover:text-white" href="#what-is-under25">What is Under25?</a>
-<a class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary dark:hover:text-white" href="#whats-inside">What's Inside</a>
-<a class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary dark:hover:text-white" href="#how-to-start">How to Start</a>
-<a class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary dark:hover:text-white" href="#stories">Stories</a>
-<a class="text-slate-700 dark:text-slate-300 text-sm font-medium leading-normal hover:text-primary dark:hover:text-white" href="#faq">FAQ</a>
+<nav class="hidden md:flex items-center gap-4 text-sm font-medium text-slate-600 dark:text-slate-300">
+<a class="hover:text-slate-900 dark:hover:text-white transition-colors" href="#">About</a>
+<a class="hover:text-slate-900 dark:hover:text-white transition-colors" href="#">Contribute</a>
+<a class="hover:text-slate-900 dark:hover:text-white transition-colors share-button" href="#">Share</a>
+<button class="px-3.5 py-1.5 rounded-full bg-primary text-white text-sm font-medium hover:bg-opacity-90 flex items-center gap-2 whitespace-nowrap" id="dark-mode-toggle-desktop">
+<span class="material-icons-outlined text-lg dark-icon">dark_mode</span>
+<span class="material-icons-outlined text-lg light-icon hidden">light_mode</span>
+<span class="dark-text">Dark Mode</span>
+<span class="light-text hidden">Light Mode</span>
+</button>
 </nav>
-<div class="flex items-center gap-2">
-<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-50 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0" id="theme-toggle-desktop">
-<span class="material-symbols-outlined text-lg dark:hidden">dark_mode</span>
-<span class="material-symbols-outlined text-lg hidden dark:inline">light_mode</span>
-</button>
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white dark:text-black dark:bg-white text-sm font-bold leading-normal tracking-[0.015em] gap-2">
-<span class="material-symbols-outlined text-base !text-white dark:!text-black">download</span>
-<span class="truncate">Download</span>
+<div class="md:hidden">
+<div class="peer">
+<button class="p-2 text-slate-800 dark:text-slate-200">
+<span class="material-icons-outlined">menu</span>
 </button>
 </div>
+<div class="dropdown-menu hidden absolute left-0 top-full mt-2 w-full bg-white dark:bg-slate-800 rounded-md shadow-lg border border-slate-200 dark:border-slate-700 z-10">
+<a class="block px-4 py-3 text-sm text-slate-700 dark:text-slate-300" href="#">About</a>
+<a class="block px-4 py-3 text-sm text-slate-700 dark:text-slate-300" href="#">Contribute</a>
+<a class="block px-4 py-3 text-sm text-slate-700 dark:text-slate-300 share-button" href="#">Share</a>
+<div class="px-4 py-3">
+<button class="w-full px-3.5 py-1.5 rounded-full bg-primary text-white text-sm font-medium hover:bg-opacity-90 flex items-center justify-center gap-2 whitespace-nowrap" id="dark-mode-toggle-mobile">
+<span class="material-icons-outlined text-lg dark-icon">dark_mode</span>
+<span class="material-icons-outlined text-lg light-icon hidden">light_mode</span>
+<span class="dark-text">Dark Mode</span>
+<span class="light-text hidden">Light Mode</span>
+</button>
 </div>
-<div class="lg:hidden flex items-center gap-2">
-<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-50 gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0" id="theme-toggle-mobile">
-<span class="material-symbols-outlined text-lg dark:hidden">dark_mode</span>
-<span class="material-symbols-outlined text-lg hidden dark:inline">light_mode</span>
-</button>
-<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-50" id="menu-toggle">
-<span class="material-symbols-outlined">menu</span>
-</button>
 </div>
 </div>
 </header>
-<div class="fixed top-0 left-0 w-full h-full bg-background-light dark:bg-background-dark z-40 p-4 lg:hidden" id="mobile-menu">
-<div class="flex flex-col h-full">
-<div class="flex justify-end pt-4 pr-4">
-<button class="text-slate-900 dark:text-slate-50" id="close-menu">
-<span class="material-symbols-outlined text-3xl">close</span>
+<main>
+<div class="max-w-4xl mx-auto">
+<div class="bg-background-light dark:bg-transparent border border-slate-200 dark:border-slate-800 rounded-lg overflow-hidden">
+<div class="p-6">
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Young Indian Boy Flying Kite</h1>
+<p class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-6">nano banana prompt</p>
+<div class="flex items-center justify-center gap-4 sm:gap-6">
+<div class="flex-1 aspect-square">
+<img alt="A young Indian boy flying a kite" class="w-full h-full object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoK-FM4vw0AD4OvRbuFf7UhCg6n8IOcY3wdth5YckAhCBFNL2iUKs9x0gbMSats4O-eJAvBLlVXMV0GAZ5TRu-KiPeC1qGq5yKRJidvKMjJBAj4SURsMkysVYKTLf9tPwTnzMOK0XSN0OEZd-xGYsz40RZaU2vkxkX0fAEdpNsFmyc84nkDkL4Ti0XIIWZEpAzJ0viUm_XbaPh22XlKK8CSDpgfFZ-U3SybH04wNPW1YlesXjOI2V8cwuzbPyfWb_-mkDlM0CKgmY"/>
+</div>
+<div class="text-slate-400 dark:text-slate-500">
+<span class="material-icons-outlined" style="font-size: 32px;">arrow_forward</span>
+</div>
+<div class="flex-1 aspect-square">
+<img alt="AI generated image of a young Indian boy" class="w-full h-full object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoK-FM4vw0AD4OvRbuFf7UhCg6n8IOcY3wdth5YckAhCBFNL2iUKs9x0gbMSats4O-eJAvBLlVXMV0GAZ5TRu-KiPeC1qGq5yKRJidvKMjJBAj4SURsMkysVYKTLf9tPwTnzMOK0XSN0OEZd-xGYsz40RZaU2vkxkX0fAEdpNsFmyc84nkDkL4Ti0XIIWZEpAzJ0viUm_XbaPh22XlKK8CSDpgfFZ-U3SybH04wNPW1YlesXjOI2V8cwuzbPyfWb_-mkDlM0CKgmY"/>
+</div>
+</div>
+</div>
+<div class="p-6 pt-0">
+<div class="flex flex-wrap items-center gap-3 mb-4">
+<span class="text-xs font-medium bg-transparent border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 px-2 py-1 rounded-full">Kids</span>
+<span class="text-xs font-medium bg-transparent border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 px-2 py-1 rounded-full">Boys</span>
+<span class="text-xs font-medium bg-transparent border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 px-2 py-1 rounded-full">Outdoor</span>
+</div>
+<div class="bg-transparent dark:bg-transparent rounded-lg p-4 border border-slate-200 dark:border-slate-800">
+<p class="text-sm text-slate-700 dark:text-slate-300 mb-4" id="prompt-wrapper">
+<strong class="font-bold mr-1">nano banana prompt:</strong><span id="prompt-text">A hyper-realistic, 8K, cinematic photograph of a curious young Indian boy with bright, expressive hazel eyes, wearing a simple hand-spun white cotton kurta. He is joyfully flying a vibrant, intricately patterned kite on a weathered terracotta rooftop, overlooking the sprawling, chaotic yet beautiful cityscape of Varanasi at the magical golden hour of dusk. The sky is a gradient of fiery orange, deep purple, and soft pink hues, with the faint silhouette of ancient temples in the distance. Dust motes dance in the warm, fading light, creating a dreamy, nostalgic atmosphere. The boy's face is a mixture of intense concentration and pure, unadulterated happiness. His kite, a splash of color against the twilight, soars high above the bustling streets below, a symbol of freedom and youthful dreams amidst the ancient city's timeless rhythm. The photo captures a fleeting, perfect moment of childhood innocence and wonder.</span>
+</p>
+<div class="flex justify-between items-center mt-4">
+<div class="flex items-center gap-1 text-sm text-slate-500 dark:text-slate-400">
+<span class="material-icons-outlined" style="font-size: 16px;">auto_awesome</span>
+<span>AI generated image</span>
+</div>
+<button class="copy-button w-full sm:w-auto flex items-center justify-center gap-2 cursor-pointer bg-transparent text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-700 px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="copy-text">Click to copy</span>
+<span class="copy-icon material-icons-outlined" style="font-size: 16px;">content_copy</span>
+<span class="copied-text hidden items-center gap-1">
+<span>Copied</span>
+<span class="material-icons-outlined" style="font-size: 16px;">check</span>
+</span>
 </button>
 </div>
-<div class="flex flex-col h-full justify-center">
-<nav class="flex flex-col items-center gap-6 text-center">
-<a class="text-slate-700 dark:text-slate-300 text-lg font-medium leading-normal hover:text-primary dark:hover:text-white" href="#what-is-under25">What is Under25?</a>
-<a class="text-slate-700 dark:text-slate-300 text-lg font-medium leading-normal hover:text-primary dark:hover:text-white" href="#whats-inside">What's Inside</a>
-<a class="text-slate-700 dark:text-slate-300 text-lg font-medium leading-normal hover:text-primary dark:hover:text-white" href="#how-to-start">How to Start</a>
-<a class="text-slate-700 dark:text-slate-300 text-lg font-medium leading-normal hover:text-primary dark:hover:text-white" href="#stories">Stories</a>
-<a class="text-slate-700 dark:text-slate-300 text-lg font-medium leading-normal hover:text-primary dark:hover:text-white" href="#faq">FAQ</a>
-</nav>
-<div class="mt-8 flex justify-center">
-<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white dark:bg-white dark:text-black text-sm font-bold leading-normal tracking-[0.015em] gap-2">
-<span class="material-symbols-outlined text-base !text-white dark:!text-black">download</span>
-<span class="truncate">Download</span>
-</button>
 </div>
 </div>
 </div>
 </div>
-<main class="flex-1 pt-32">
-<div class="px-4 md:px-10 lg:px-20 flex flex-1 justify-center py-5">
-<div class="layout-content-container flex flex-col w-full flex-1 gap-6">
-<div class="relative w-full mx-auto overflow-hidden rounded-xl -mt-8" id="carousel-wrapper">
-<div class="carousel-container">
-<div class="carousel-item relative overflow-hidden">
-<img class="w-full h-auto aspect-video object-cover" data-alt="Students collaborating on a project using laptops." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeIm7OkZYrg5HDJsKPWgzTm35uI58dZVW8WqHHbJFqoNoXS4dPY-6AWxutf07CrufLt_3_fdygY3ENdY9VU3s6K04FAppy3qc6dhiib9xbdhosY2AJbw2hE-JmYBfuSJGvmbXKjz_79ZCWNY2e7AWiOOOuBibaaZ1573Y2rjb4QgqFMreEPMdiP2UlHw-7yAlQpkINzaVNcPO9xQZ40AIhn-LxkoSBVHRIF11C6on2cfxIBMam2PWhwBPUCBmJ-eEJ-lfykJI8MLA"/>
-</div>
-<div class="carousel-item relative overflow-hidden">
-<img class="w-full h-auto aspect-video object-cover" data-alt="A student smiling while using a smartphone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACKX_yUVAQ_hQ5qPVHXBR69qeraJoMik9MHYVeO6IhHWBGRIDjyj3h8qAtXViFWRksGd3YBthJ8LLEy3acvLGUtxd_bumGvPPRlijv0LcNvoui5v-be33DN3gFeVyVVh4frXjk1Vx7iZwkqIMDtIyqznoerFwGutYq5IkyFNWE04zDd9gJayI3EvSOxRo0l5ri9eM45_izs8DocB6iYgieSu5DXZmBrT1gEHPbI_pDkZ-dtwAZPsFO4hKHuoopBgLOzOUpRODLVfQ"/>
-</div>
-<div class="carousel-item relative overflow-hidden">
-<img class="w-full h-auto aspect-video object-cover" data-alt="A group of diverse students in a classroom setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz1gtxky9RFLu1j1H0tnQRLniL6K4wJh8bCLHRve2YVSgc4JRe55VimW4FuvuhoNsVD9x1ZBL6YfedyBiVwS8UPVriiLt3w2eGnUGlWA0HQ9cHr6UUre4nEUyRA4R1k4JI6iVohkPkSXPW8AfXAuqVbNqbw-8g2phtCGVpA7GQTTPOTarAVZYRcdcNazmP_2KCSG2-CeL_-9Pg9J0cTkbhcCZSDfAUTUIbeqnWjhHjnZki7fbcPUvj8W4ccLfy8ssaITRDtfK74ik"/>
-</div>
-</div>
-<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2" id="carousel-indicators"></div>
-</div>
-<div class="text-center space-y-4 px-4 py-8">
-<h1 class="text-slate-900 dark:text-slate-50 tracking-tight text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">India's largest students networking app</h1>
-<p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-3xl mx-auto">
-                                Discover exclusive internships, part-time jobs, and freelancing gigs. Connect with peers, join communities, and collaborate on exciting projects.
-                            </p>
-</div>
-<div class="grid grid-cols-2 md:grid-cols-4 justify-center items-start gap-4 md:gap-8 lg:gap-12 py-8" id="stats-counter">
-<div class="text-center">
-<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold stat-number" data-start="1" data-suffix="k+" data-target="30">1k+</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Students</p>
-</div>
-<div class="text-center">
-<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold stat-number" data-start="1" data-suffix="L+" data-target="70">1L+</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Money<br/>Distributed</p>
-</div>
-<div class="text-center">
-<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold stat-number" data-suffix="+" data-target="141">0</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Opportunities<br/>listed</p>
-</div>
-<div class="text-center">
-<h3 class="text-slate-900 dark:text-slate-50 text-2xl md:text-3xl lg:text-4xl font-bold stat-number" data-suffix="+" data-target="310">0</h3>
-<p class="text-slate-600 dark:text-slate-400 text-sm md:text-base">Partnerships<br/>built</p>
-</div>
-</div>
-<div class="flex justify-center">
-<a class="flex items-center justify-center gap-2.5 bg-black text-white dark:bg-white dark:text-black rounded-lg px-6 py-3.5 text-lg font-semibold" href="#">
-<i class="fa-solid fa-download !text-white dark:!text-black"></i>
-<span>Install App Now</span>
-</a>
-</div>
-</div>
-</div>
-<section class="py-16 md:py-24 lg:py-32" id="trusted-brands">
-<div class="px-4 md:px-10 lg:px-20 flex justify-center">
-<div class="w-full max-w-7xl flex flex-col items-center gap-8">
-<h2 class="text-slate-900 dark:text-slate-50 font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight text-center">Trusted Brands</h2>
-<p class="text-slate-600 dark:text-slate-400 text-center text-lg">Trusted by 100+ brands including:</p>
-<div class="w-full overflow-hidden">
-<div class="scrolling-logos">
-<div class="flex-shrink-0 flex items-center justify-around w-full">
-<img alt="Brand Logo 1" class="h-10 w-auto object-contain mx-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC26CI_raoPdULlCwcce-n5Y_EwaAHHj_qJ8ZqhKGhUDiq0WnVy0xqkdic0UJiPS_y1I-0qcj2-3X_ztjW6-TYtUF2mxwIPQIREZIlwH39GfnrqvBmt2ixZmN77YDoy_Son0ZqA_afo416X7AEwqr-tNdSLTnogow_vijLaJ44jGsjfzeuaCGrXXXSeZiG5lVThKm-yJ1E13Php1NyHWN8uXs5FCIVa5l6WaoyN8EdviTiHTQBhjRyUZVKea0IJVHdZ5Uy-kASRTYM"/>
-<img alt="Brand Logo 2" class="h-10 w-auto object-contain mx-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFZwHi5PK-G8f7yWg5WTy8sSxCOIOnvaJezhirttvdZdvIoy4wPFYiHZXgXnlXRwLj368r-gqJaPEgU1AGxQFFTCYZuIERGmQc-YBMV1CLoI1XrL93UzVYH535eEHbo3qB3bay5BEHlZQLwzodVeLpkBskTTnumnNQzfli-mxjv2iXLm9_zd8uydeamhsBc5SDGoRGMvvZ5PZhSOxhVaO3ukbyxuCB260Pm84upjrHTvw7X32TCW5R8CRJdQqB2WMRa0B2sOwe1no"/>
-<img alt="Brand Logo 3" class="h-10 w-auto object-contain mx-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1TC6EixIYK0IluYdRck4QinoPJlimxWQCeAfvl2psQypjwutZCurrtTMwwRiD1JUxjLzfH-Jax-qS-H9OE5gFFB4dVjly5DcyUhe6h94Rzqy-fUHtjkCgIuhcGrvW6OQybhqOW_P8yeLqUIIIU0qiCK2W7D5C9TblFFsXAt3q9ylFxjZT8QpDPsXpt3GYRjmN0qFavjWG2Y4ziquqyF-F5rb-xf0AHzMLFl47OK6VPnthto0gRGTa3GqGG_9FlP71P-rE3gxBOLc"/>
-<img alt="Brand Logo 4" class="h-10 w-auto object-contain mx-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeIWfd2jfQNZsHXySdQMXqv1zvNuCMAC_9-RZhQ0kQHgEcCuCFP20lJLhAHcXtj-xPFBbeh-FCqgu6D5wue5Jycx7JnScflcDN5NxrR_yORyB0bt7xBvYfM_lRMUFxdwq4PoE_ZWA8qopgZ34YKBKG0StXzTXmd8k6CATBAU33qV6bGuwaWlXgVp-I_Gl18rSKoUgsJR61ks0IGHFF6ri86KAHMrmFeQb3do9OFT0YNkuBs8gzfAVvaW7EHdfODwQquJfCMQjAT0Y"/>
-<img alt="Brand Logo 5" class="h-10 w-auto object-contain mx-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoArjeSRTbCB5-2tRqtzmOIr137ZVlHRzSzv-ZyeXn_29URr4YpEDYiBBhwS_sKdXBv7mtvvl-Nadnlrsl3_78qlLxPAhtm3QgumtPalDqRRpcm76Y36OdkQM524EzHZUC-i9n9242-9ERAc2r7vf3pjE2eIKylrXKVo5ECzLtEyYk8YBg1GKiWCOvH_DUXIbw4NJh8O_CeP8eTpf1wiJuBSGUqdbuwHqvFrxrwulnjBSByJyGJZsXUyo3WdnVb5rn6dP8OsGHnsI"/>
-<img alt="Brand Logo 6" class="h-10 w-auto object-contain mx-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbKQju-KAWr5Ul1i2TZ9CHN88yY78FvDggRtFoMKKqvx3UWUZSvfjz6pUQcuOAhMjBf3Fs2yYWx_LRbhCj1Vs18FANKmE6l6rT1C2rN5OB2N6EEhxNVF4vHwdYCabeoQKhN7IKrd1aG2cM0_YpppbGKR4u3aVUNGoTBcRmB8zShcu_dcP9BuqVSyDDQ_7BTmqnj5GJ_LgluiHH1QpbkH5LNHdyt_McpsxecWaLlJ8ZPSZsJa-1S5gamI1E7C6zfFM1ld4KgUniKLI"/>
-</div>
-<div aria-hidden="true" class="flex-shrink-0 flex items-center justify-around w-full">
-<img alt="Brand Logo 1" class="h-10 w-auto object-contain mx-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC26CI_raoPdULlCwcce-n5Y_EwaAHHj_qJ8ZqhKGhUDiq0WnVy0xqkdic0UJiPS_y1I-0qcj2-3X_ztjW6-TYtUF2mxwIPQIREZIlwH39GfnrqvBmt2ixZmN77YDoy_Son0ZqA_afo416X7AEwqr-tNdSLTnogow_vijLaJ44jGsjfzeuaCGrXXXSeZiG5lVThKm-yJ1E13Php1NyHWN8uXs5FCIVa5l6WaoyN8EdviTiHTQBhjRyUZVKea0IJVHdZ5Uy-kASRTYM"/>
-<img alt="Brand Logo 2" class="h-10 w-auto object-contain mx-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFZwHi5PK-G8f7yWg5WTy8sSxCOIOnvaJezhirttvdZdvIoy4wPFYiHZXgXnlXRwLj368r-gqJaPEgU1AGxQFFTCYZuIERGmQc-YBMV1CLoI1XrL93UzVYH535eEHbo3qB3bay5BEHlZQLwzodVeLpkBskTTnumnNQzfli-mxjv2iXLm9_zd8uydeamhsBc5SDGoRGMvvZ5PZhSOxhVaO3ukbyxuCB260Pm84upjrHTvw7X32TCW5R8CRJdQqB2WMRa0B2sOwe1no"/>
-<img alt="Brand Logo 3" class="h-10 w-auto object-contain mx-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1TC6EixIYK0IluYdRck4QinoPJlimxWQCeAfvl2psQypjwutZCurrtTMwwRiD1JUxjLzfH-Jax-qS-H9OE5gFFB4dVjly5DcyUhe6h94Rzqy-fUHtjkCgIuhcGrvW6OQybhqOW_P8yeLqUIIIU0qiCK2W7D5C9TblFFsXAt3q9ylFxjZT8QpDPsXpt3GYRjmN0qFavjWG2Y4ziquqyF-F5rb-xf0AHzMLFl47OK6VPnthto0gRGTa3GqGG_9FlP71P-rE3gxBOLc"/>
-<img alt="Brand Logo 4" class="h-10 w-auto object-contain mx-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeIWfd2jfQNZsHXySdQMXqv1zvNuCMAC_9-RZhQ0kQHgEcCuCFP20lJLhAHcXtj-xPFBbeh-FCqgu6D5wue5Jycx7JnScflcDN5NxrR_yORyB0bt7xBvYfM_lRMUFxdwq4PoE_ZWA8qopgZ34YKBKG0StXzTXmd8k6CATBAU33qV6bGuwaWlXgVp-I_Gl18rSKoUgsJR61ks0IGHFF6ri86KAHMrmFeQb3do9OFT0YNkuBs8gzfAVvaW7EHdfODwQquJfCMQjAT0Y"/>
-<img alt="Brand Logo 5" class="h-10 w-auto object-contain mx-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoArjeSRTbCB5-2tRqtzmOIr137ZVlHRzSzv-ZyeXn_29URr4YpEDYiBBhwS_sKdXBv7mtvvl-Nadnlrsl3_78qlLxPAhtm3QgumtPalDqRRpcm76Y36OdkQM524EzHZUC-i9n9242-9ERAc2r7vf3pjE2eIKylrXKVo5ECzLtEyYk8YBg1GKiWCOvH_DUXIbw4NJh8O_CeP8eTpf1wiJuBSGUqdbuwHqvFrxrwulnjBSByJyGJZsXUyo3WdnVb5rn6dP8OsGHnsI"/>
-<img alt="Brand Logo 6" class="h-10 w-auto object-contain mx-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbKQju-KAWr5Ul1i2TZ9CHN88yY78FvDggRtFoMKKqvx3UWUZSvfjz6pUQcuOAhMjBf3Fs2yYWx_LRbhCj1Vs18FANKmE6l6rT1C2rN5OB2N6EEhxNVF4vHwdYCabeoQKhN7IKrd1aG2cM0_YpppbGKR4u3aVUNGoTBcRmB8zShcu_dcP9BuqVSyDDQ_7BTmqnj5GJ_LgluiHH1QpbkH5LNHdyt_McpsxecWaLlJ8ZPSZsJa-1S5gamI1E7C6zfFM1ld4KgUniKLI"/>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-16 md:py-24 lg:py-32" id="what-is-under25">
-<div class="px-4 md:px-10 lg:px-20 flex justify-center">
-<div class="w-full max-w-7xl flex flex-col items-center gap-12">
-<div class="flex flex-col items-center gap-4 text-center">
-<h2 class="text-slate-900 dark:text-slate-50 font-bold text-3xl sm:text-4xl md:text-5xl tracking-[-0.015em]">What is Under 25?</h2>
-<p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg md:text-xl max-w-3xl">Under 25 is a dynamic platform exclusively for students, designed to help you earn, learn, and grow. It's more than just an app; it's a vibrant community where you can find opportunities, connect with like-minded peers, and build your future. <a class="text-primary no-underline font-medium dark:text-white" href="#">Click here to know more</a></p>
-</div>
-<div class="w-full pt-8">
-<div class="aspect-video w-full rounded-xl overflow-hidden">
-<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="w-full h-full" frameborder="0" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player"></iframe>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-16 md:py-24 lg:py-32" id="whats-inside">
-<div class="px-4 md:px-10 lg:px-20 flex justify-center">
-<div class="w-full max-w-7xl flex flex-col items-center gap-12">
-<div class="flex flex-col items-center gap-4 text-center">
-<h2 class="text-slate-900 dark:text-slate-50 font-bold text-3xl sm:text-4xl md:text-5xl tracking-[-0.015em]">What's Inside</h2>
-<p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg md:text-xl max-w-3xl">Unlock a world of possibilities with the Under 25 app. Here's a glimpse of what awaits you.</p>
-</div>
-<div class="w-full max-w-4xl mx-auto flex flex-col gap-12 pt-8">
-<div class="flex flex-col md:flex-row items-center gap-8 p-6 rounded-xl border border-black/10 dark:border-white/10">
-<img alt="Missions feature illustration" class="w-full md:w-1/3 h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYUQTfNuAsHaHEoQerpCJs7vqD_itnRbYsnD2CJ6JszIJh8vZKFCt7c78eQ6VHyUYLNCjB8ASjx0YPoUSdDdfWDuPzfIVCLB13c4ZcgXHUBg1BL4lowaI_YLeg-QnvzTa-vl9mc2bsURkrEEkuALPwNV_DnMUMrpMD3OBXRF69xKDcAJyl91XoBpNA2wTKk191lZDIASiXKdXEeB3gcjiRHT3mFB6jKUXRKUU9-RnWZQpsO7rUBgBZM3TejTw5OGJ-15H-Mc6qdSM"/>
-<div class="flex-1">
-<h3 class="text-slate-900 dark:text-slate-50 font-bold text-2xl mb-2">Missions</h3>
-<p class="text-slate-600 dark:text-slate-400 mb-4">Dive into a world of interactive tasks and challenges designed to help you apply your knowledge in real-world scenarios. By completing missions, you not only earn valuable rewards and exclusive merchandise but also build a portfolio of work that demonstrates your capabilities to future employers. It's a fun, engaging way to learn by doing and get recognized for your skills. <a class="text-primary dark:text-white font-medium" href="#">Read More</a></p>
-</div>
-</div>
-<div class="flex flex-col md:flex-row items-center gap-8 p-6 rounded-xl border border-black/10 dark:border-white/10">
-<img alt="Jobs &amp; Internships feature illustration" class="w-full md:w-1/3 h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC44F0IAsOlFLfrSaw84x_tynWZjDMw0WIqmachiZfMMrtmWJnT6A4Za6rqIOkj6hralDTt5Kzz-d4gy7FTUrw7a658gFRIFlaZ2iTxl1fjb4sNMb5AXQHLs0sC6y6cGKuuwqdkEqptXyYR0mvnlK8xarQI_toeceCk5DElpIAM9eRpyXZF3LDtCnLuUVQh6pI_BpRkVnBtEyIqNoo-J9ilhiRBfmBvlfl1i1fZ4Wui6VJqfVfluwDGMK3Y-X3NgeB5kyf9dnR-wTs"/>
-<div class="flex-1">
-<h3 class="text-slate-900 dark:text-slate-50 font-bold text-2xl mb-2">Jobs &amp; Internships</h3>
-<p class="text-slate-600 dark:text-slate-400 mb-4">Kickstart your career with our curated selection of jobs, internships, and freelance projects from top companies and innovative startups. Our platform is designed to match your skills and interests with the perfect opportunity, helping you gain invaluable industry experience, build your professional network, and make a real impact even before you graduate. <a class="text-primary dark:text-white font-medium" href="#">Read More</a></p>
-</div>
-</div>
-<div class="flex flex-col md:flex-row items-center gap-8 p-6 rounded-xl border border-black/10 dark:border-white/10">
-<img alt="XP Leaderboard feature illustration" class="w-full md:w-1/3 h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNvSOODLJk7PX21mTzwIqgtrSnkLB_ykOGpcfWUdvpqGt0OmY4VCFUCCcfBiD6MdE3kAvFX4i1QRqRukGcfo5Cn-0thmP7Jxzwi0jVB8bho-2iHffSnrxWnHOQI1TamQaUj6fyvlV1Hb5Bq6gXuVqFbBilzSndfhmE6trm0NV0HibPTIGywQIde5D61juqyiEWyoV_3j3WC68Y1vzNoD_mq-gkWTJsQs2myTPtnNSsm_dV8HVgmI-Esid1S3J2vqw2Cjq66uWU1uE"/>
-<div class="flex-1">
-<h3 class="text-slate-900 dark:text-slate-50 font-bold text-2xl mb-2">XP Leaderboard</h3>
-<p class="text-slate-600 dark:text-slate-400 mb-4">Gamify your growth and see where you stand among your peers. Earn Experience Points (XP) for every mission you complete, every event you attend, and every connection you make. Climb the ranks on our dynamic leaderboard, unlock achievement badges, and gain recognition for your hard work and dedication. It’s a motivating way to track your progress and celebrate your milestones. <a class="text-primary dark:text-white font-medium" href="#">Read More</a></p>
-</div>
-</div>
-<div class="flex flex-col md:flex-row items-center gap-8 p-6 rounded-xl border border-black/10 dark:border-white/10">
-<img alt="Spaces feature illustration" class="w-full md:w-1/3 h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPsBvHVzpWcO2ZNyIlr1rgJ_inYZWaYU7kUj57_HPdhl4vHE0WXW0GGqAvke5EASR29kJM4iNlziGwxZ96E42jEIgyjjCweb8RbbMMYS77-NFnVEZPOqbXhA0WJJ82-IoxX7vfqUEFp480JkiNbUKL01tO_GnPWSults1ieNGSLL3rxFA-T2Iw8PvSyR9Bzrt6r1Ckjxwqzw7hen5OdrlQiHZjgeNgFfFD4yVAjFIzpFdFmXu3vaqBU_NHbyKYDOfiBsXSGG82HwM"/>
-<div class="flex-1">
-<h3 class="text-slate-900 dark:text-slate-50 font-bold text-2xl mb-2">Spaces</h3>
-<p class="text-slate-600 dark:text-slate-400 mb-4">Find your tribe by joining Spaces—dedicated groups centered around your interests, from coding and design to marketing and entrepreneurship. In these communities, you can connect with like-minded students, share ideas, ask questions, collaborate on projects, and learn from each other in a supportive and inspiring environment. It's networking, but more meaningful. <a class="text-primary dark:text-white font-medium" href="#">Read More</a></p>
-</div>
-</div>
-<div class="flex flex-col md:flex-row items-center gap-8 p-6 rounded-xl border border-black/10 dark:border-white/10">
-<img alt="Events feature illustration" class="w-full md:w-1/3 h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrTsS0mckSjtJobP70LgLazHTtns17awT-nfvazCAmZuMIixcP5q5IO9lvMPLQWngIHaE_6OCdZQFL7edAnu1ds24aRvquZZA1fDR2qBkRRft4FlkWzu_oTEVi71za6EIfTyBAsUNyepqn8xTC0NN45IhkiTy4K9SUVckaCOODbyDP24NrsB1boreROQqu0TFWZWQZxLTdaZ_WzVuQXm3G0BzjM2wkHqeBnjp5_hs3zJoWgFg9BqbYqY7HweIEVSbyi6pSsJ4XgSo"/>
-<div class="flex-1">
-<h3 class="text-slate-900 dark:text-slate-50 font-bold text-2xl mb-2">Events</h3>
-<p class="text-slate-600 dark:text-slate-400 mb-4">Never stop learning with our calendar of exclusive events. Gain access to expert-led workshops, insightful webinars with industry leaders, hackathons, and nationwide competitions. These events are designed to help you acquire new skills, stay ahead of industry trends, and expand your professional network, all from within the Under 25 ecosystem. <a class="text-primary dark:text-white font-medium" href="#">Read More</a></p>
-</div>
-</div>
-<div class="flex flex-col md:flex-row items-center gap-8 p-6 rounded-xl border border-black/10 dark:border-white/10">
-<img alt="Community feature illustration" class="w-full md:w-1/3 h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrO1xK_CpUAyt4CvOvjIx3eLUtrwMMUS_cPqurvuCDaWAbvrynMyXJJ9V6yhm9RXWADqta3XVmjJNVlNSQYG1_3t7gLxH--dMlXoN0aI9ymn7Rj6LibQzn_9Eo6KZlYMjM9h1Lp7nUgzAScdp6mnZ2wJqiwlwz0e9UDqomj9q-VCdemrQYaMon7Sh_bj0OnTPK0IIuCHqcQ85WtHKulKjVPEUrcfQ89jDgmXYTmBKUK2DwdEdbLP5jZhQwXBKRrsSgXp92BBQmx1s"/>
-<div class="flex-1">
-<h3 class="text-slate-900 dark:text-slate-50 font-bold text-2xl mb-2">Community</h3>
-<p class="text-slate-600 dark:text-slate-400 mb-4">Become part of something bigger. The Under 25 Community is the heart of our platform, a thriving network of India’s brightest and most ambitious students. Here, you can forge lasting friendships, find mentors to guide your career path, discover collaborators for your next big idea, and grow together in a culture of mutual support and encouragement. <a class="text-primary dark:text-white font-medium" href="#">Read More</a></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-16 md:py-24 lg:py-32" id="how-to-start">
-<div class="px-4 md:px-10 lg:px-20 flex justify-center">
-<div class="w-full max-w-7xl flex flex-col items-center gap-12">
-<div class="flex flex-col items-center gap-4 text-center">
-<h2 class="text-slate-900 dark:text-slate-50 font-bold text-3xl sm:text-4xl md:text-5xl tracking-[-0.015em]">How to Start</h2>
-<p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg md:text-xl max-w-3xl">Joining our community and starting your journey is simple. Follow these steps to get started:</p>
-</div>
-<div class="w-full max-w-4xl pt-8 flex flex-col gap-6">
-<div class="flex flex-col md:flex-row items-center gap-6 text-left p-6 border border-slate-200 dark:border-slate-800 rounded-lg">
-<img alt="A smartphone screen showing the app store with the Under 25 app displayed." class="w-full h-auto rounded-lg object-cover md:w-40 md:h-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhEZELNdPv7pDAHFAwUst8Q7ahPedlvYGQtF5CNKJxNHG74IO2Fc6qY_YX2p-3xH5Dy8pa4yHg8iEEDQebb1plonO18aXa-8ovqwt0WwoZ9mRUESIP9nU7XeuFnwcwz8ILRpF_eb7Y-BaDBwriil_PunUCr094guqWtUMaJmkw3b981YRFuUQd8SqbqRIVsBTisyEt2xwuLjO5-9W1C5fNzZeOa-5ixeoWRLd_pzj5EH6rHkz8XnEDhT5BoXfPkMPtHNKo6RcAMJ0"/>
-<div class="flex-1 text-left">
-<h3 class="text-slate-900 dark:text-slate-50 font-bold text-xl mb-2">1. Download the App</h3>
-<p class="text-slate-600 dark:text-slate-400">Visit the App Store or Google Play Store, search for "Under 25 Community," and install it on your smartphone. The app is completely free and your gateway to all our features. <a class="text-primary dark:text-white font-medium" href="#">Click here to download the app</a></p>
-</div>
-</div>
-<div class="flex flex-col md:flex-row items-center gap-6 text-left p-6 border border-slate-200 dark:border-slate-800 rounded-lg">
-<img alt="An illustration of a user profile page on a mobile device." class="w-full h-auto rounded-lg object-cover md:w-40 md:h-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDISL3heCwU3sYyZTPsEefStrf3ksp4GIBy_g2k3J2OG8zqCE8SgZWMlYgow66EaMtxJP_neeDsM_qqd_zZ8htIzjThoRy9tlAl71Tj7l2fe1wLt2Uv4DWR074gkwyYyCknunhesyZHVW-QXg5iDJjSwdvovRNyKHp1wryuuXWOVBm6JLvCNKmnYxSSlzop-O2PFTZkKj8VWF0Kdx9lzfe3py02WQ_QtK_otvmrf_x9RF39H3WxxOW-eGIJ_pDggJxdv5X9ID963Qc"/>
-<div class="flex-1 text-left">
-<h3 class="text-slate-900 dark:text-slate-50 font-bold text-xl mb-2">2. Create Your Profile</h3>
-<p class="text-slate-600 dark:text-slate-400">Sign up and build your profile. Highlight your skills, experiences, and interests. A complete and compelling profile will help you stand out and attract the right opportunities.</p>
-</div>
-</div>
-<div class="flex flex-col md:flex-row items-center gap-6 text-left p-6 border border-slate-200 dark:border-slate-800 rounded-lg">
-<img alt="A graphic representing different engagement activities like missions, internships, and events." class="w-full h-auto rounded-lg object-cover md:w-40 md:h-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVTGNbiSKBVNE1WPjDiswcNc3uiYNCfdTH9Qwz8qnNgniZFUYrRY3ua82LvOEpbvVOBecU1KbHlG7C45cCbKIsZcvycPM7ReY7snv2Sxrc31SSj0V9ZOY06pRjQuFKEM-h7uUindOjuzc-g_SV8PYOrSR7P8w7fNMcV-omeg3CzU5Tp5zDr0OTHiitDd7s6OrapxnlaiasEf_eSwQE4SJCAF6QGYpQ1uNzkFtyM0vLAusiBlqF03UC09hWDOQ_OuH4c8xh7YOlJFM"/>
-<div class="flex-1 text-left">
-<h3 class="text-slate-900 dark:text-slate-50 font-bold text-xl mb-2">3. Explore &amp; Engage</h3>
-<p class="text-slate-600 dark:text-slate-400">Start exploring! Browse through missions, apply for internships, join Spaces that match your passions, and participate in events. The more you engage, the more you earn and grow.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-16 md:py-24 lg:py-32" id="stories">
-<div class="px-4 md:px-10 lg:px-20 flex justify-center">
-<div class="w-full max-w-7xl flex flex-col items-center gap-12">
-<div class="flex flex-col items-center gap-4 text-center">
-<h2 class="text-slate-900 dark:text-slate-50 font-bold text-3xl sm:text-4xl md:text-5xl tracking-[-0.015em]">Stories from our Community</h2>
-<p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg md:text-xl max-w-3xl">See how students are making the most of Under 25. Inspiring journeys, real experiences. <a class="text-primary dark:text-white font-medium" href="#">Click here to read all stories</a></p>
-</div>
-<div class="w-full max-w-4xl mx-auto pt-8 relative overflow-hidden" id="story-carousel-container">
-<div class="story-card w-full p-6 rounded-xl border border-slate-200 dark:border-slate-800 active dark:bg-transparent">
-<div class="flex flex-col h-full justify-between">
-<div>
-<div class="flex items-center justify-between gap-4 mb-4">
-<div class="flex items-center gap-4">
-<img alt="User profile image" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3dxYRbjyJNkGzoI_uKzrQRIA1AqfNZRJxF8OSZKa-xd0I7174vwo_NwgARkj7W8vadAw6oW3mCFuOvhTP7z4WMYMiElQETWBII7RfALkqUnJw1Wq11solEOo-K7Ie7vGhVjSJUUtskaOlSnc60nw6CIw2fpibIaO2vMAtZGancdpBRzCVuXx9_yfoKZbB_pJTyj9W5adJ3b6meWleI97UKTMgR4gyh-Cw7IosBpXI3jHuYOu8-e4iNN-rNoLXziNl_JLnYO6I_JQ"/>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-slate-50">Priya Sharma</h4>
-<p class="text-sm text-slate-600 dark:text-slate-400">@priya_sharma</p>
-</div>
-</div>
-<span class="inline-block bg-transparent border border-slate-400 dark:border-slate-600 text-slate-600 dark:text-slate-400 text-xs font-medium px-2.5 py-1 rounded-full">Graphic Designer</span>
-</div>
-<div class="relative aspect-video w-full rounded-lg overflow-hidden mb-4">
-<img alt="Story image of Priya Sharma" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzab3yTOk0lqpcxQRBjp6x73yaMziY94scxzQBU2mX4wsIjKeG__PzpaVvIF8Dm0EACBaA5EQc5EJIEfidj_g0_piuQUbdidp1BHPfaMJLTMhMWcdIbSqPYrN0wvp_Olu7isheUNOI4rGgbg4SQcvSEOKjVkl7xqAIIqPdPdDXincIFIBlFTa1HolxTTdxSlMiCpBeTfNWraQRg_soUStMWKlMR6BPoQyBPEj7b68ar0a8mc8cpJKwhYalGHdPPkNj9U09dio8vWs"/>
-</div>
-<p class="text-slate-600 dark:text-slate-400 line-clamp-4">"Under 25 connected me with a freelance gig that turned into a full-time passion. I've grown my portfolio and my confidence. The community is so supportive, and the opportunities are real. It's more than an app; it's a career launchpad!"</p>
-</div>
-<button class="self-start mt-4 text-primary dark:text-white font-semibold text-sm">Read More</button>
-</div>
-</div>
-<div class="story-card w-full p-6 rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-transparent">
-<div class="flex flex-col h-full justify-between">
-<div>
-<div class="flex items-center justify-between gap-4 mb-4">
-<div class="flex items-center gap-4">
-<img alt="User profile image" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjDI0clsb8Kinbk5ZuLTJnJMJd2qIkBDHsBFXN9hT9WKdAQ52eGbb5RkwUoAJVjgq_6za2ZnDKrTlcFXIpqQomoit2GAG3erHQO7hZhShCruPgMVHIKfdkZHfh20IFOUkNYzDQK0PKMet8OM5fvkkyZ1k0VWPCkS5dkmOStzwjWpeIkwpZIDXqn9VtZRY8_F_ipo0oALLxOSl6La7WQhi8vqh2osjOjWq-OhYMm7UoVWkh1J88mnXDm-9AHxZFXyTPGKOOnemBzQ4"/>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-slate-50">Rajesh Kumar</h4>
-<p class="text-sm text-slate-600 dark:text-slate-400">@rajesh_k</p>
-</div>
-</div>
-<span class="inline-block bg-transparent border border-slate-400 dark:border-slate-600 text-slate-600 dark:text-slate-400 text-xs font-medium px-2.5 py-1 rounded-full">App Developer</span>
-</div>
-<div class="relative aspect-video w-full rounded-lg overflow-hidden mb-4">
-<img alt="Story image of Rajesh Kumar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc84dkHdlM8rsI4xQrppqUMYEFHB5eB3WjYleDTNcpNDSNQKNhg85FEEe21TEjRTVOA-0ITXrWv4nIIQyoZkfzrjAIatMPzK2-o9980eLbVYFA3wetw03iXPkXciH5CjEg7nyQhubRfl5XoJS8MiV4ZP_BdG51fopcT43uiCuAapQ61e8W_RwJ6S9_YPNvos-hcA3CpYXZO-VnENkWmPmumumfiXrRbGHktGHs5fO6Pl6JMFok8n2_uZsG8-DVHtex4GITJ_Ou5_s"/>
-</div>
-<p class="text-slate-600 dark:text-slate-400 line-clamp-4">"Through the XP Leaderboard, I challenged myself to learn new coding languages. The missions were tough but rewarding. I landed an internship at a top tech startup thanks to the skills I honed here. Forever grateful for this platform."</p>
-</div>
-<button class="self-start mt-4 text-primary dark:text-white font-semibold text-sm">Read More</button>
-</div>
-</div>
-<div class="story-card w-full p-6 rounded-xl border border-slate-200 dark:border-slate-800 dark:bg-transparent">
-<div class="flex flex-col h-full justify-between">
-<div>
-<div class="flex items-center justify-between gap-4 mb-4">
-<div class="flex items-center gap-4">
-<img alt="User profile image" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArWJ4HV9yG3NgaBdyAGSmm0PChqubOXkpDzDNwPh5TbvHV6EswEHt7INcI_a1uWRZ2QGP1hm5WvqUHSU6aSfGwl1q9_sSU1d8aEG2hNtH_V2hs9wdlY6575wOxXPHjw37Tv-LGxP__hzqIgIj49oORiZaGNUX5Yd-ChdQnBqXeJ_OKu4rdRH-o1mUHGpXV0swfSF8j1Du6lhryPRraSLTpiUw9-VIBEgkkToy-SUJVSejBMEbP3S_H1IFHo-T_DTH3_blAuVsAejE"/>
-<div>
-<h4 class="font-bold text-slate-900 dark:text-slate-50">Anjali Singh</h4>
-<p class="text-sm text-slate-600 dark:text-slate-400">@anjali_s</p>
-</div>
-</div>
-<span class="inline-block bg-transparent border border-slate-400 dark:border-slate-600 text-slate-600 dark:text-slate-400 text-xs font-medium px-2.5 py-1 rounded-full">Marketing Intern</span>
-</div>
-<div class="relative aspect-video w-full rounded-lg overflow-hidden mb-4">
-<img alt="Story image of Anjali Singh" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgrwvS1LDfgFbjD7bQsCJqko-bUSLajMWgEtovwEt0bEhZFmOVTUCQ_tFDaMTAdds8wtHZ0YgJbk1MjhGx8PfgN4BRBTorueAfBg7tyc9lMuDzw8T7gcwG3DBZWCH6NggtIV97Jo4BIbDi55gMJtNhgYjoJRflfZR7t1nX9BoBlhmnqKn7JKK9q4O9qZaM9R4qxBHE5Fmlgu8l_WxcrVhOTFXB0HiyuX8PHTPHRiuYGRHYJxpLh_0SI30Ze_ZK_xdjwYV8ZV-qD_4"/>
-</div>
-<p class="text-slate-600 dark:text-slate-400 line-clamp-4">"Joining the 'Marketing Mavericks' Space on Under 25 was a game-changer. I collaborated on a project with students from different cities, and we won a national competition! The events and workshops are top-notch and have been crucial for my learning."</p>
-</div>
-<button class="self-start mt-4 text-primary dark:text-white font-semibold text-sm">Read More</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-16 md:py-24 lg:py-32" id="faq">
-<div class="px-4 md:px-10 lg:px-20 flex justify-center">
-<div class="w-full max-w-7xl flex flex-col items-center gap-12">
-<div class="flex flex-col items-center gap-4 text-center">
-<h2 class="text-slate-900 dark:text-slate-50 font-bold text-3xl sm:text-4xl md:text-5xl tracking-[-0.015em]">Frequently Asked Questions</h2>
-<p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg md:text-xl max-w-3xl">Have questions? We've got answers. Check out our FAQ section to find what you're looking for.</p>
-</div>
-<div class="w-full max-w-3xl pt-8 space-y-4" id="faq-container">
-<div class="faq-item border border-slate-200 dark:border-slate-800 rounded-lg p-4">
-<div class="question flex justify-between items-center cursor-pointer">
-<h3 class="text-slate-900 dark:text-slate-50 font-semibold text-lg">What kind of opportunities can I find on the Under 25 app?</h3>
-<span class="material-symbols-outlined icon">expand_more</span>
-</div>
-<div class="answer pt-2">
-<p class="text-slate-600 dark:text-slate-400">The Under 25 app is your gateway to a wide range of opportunities, including exclusive internships, part-time jobs, freelance projects, and volunteering roles from top companies and startups. We also host various competitions and challenges to help you showcase your skills.</p>
-</div>
-</div>
-<div class="faq-item border border-slate-200 dark:border-slate-800 rounded-lg p-4">
-<div class="question flex justify-between items-center cursor-pointer">
-<h3 class="text-slate-900 dark:text-slate-50 font-semibold text-lg">Is the Under 25 app free to use?</h3>
-<span class="material-symbols-outlined icon">expand_more</span>
-</div>
-<div class="answer pt-2">
-<p class="text-slate-600 dark:text-slate-400">Yes, the Under 25 app is completely free for all students to download and use. Our mission is to provide equal access to opportunities and resources to help every student succeed.</p>
-</div>
-</div>
-<div class="faq-item border border-slate-200 dark:border-slate-800 rounded-lg p-4">
-<div class="question flex justify-between items-center cursor-pointer">
-<h3 class="text-slate-900 dark:text-slate-50 font-semibold text-lg">How does the community feature work?</h3>
-<span class="material-symbols-outlined icon">expand_more</span>
-</div>
-<div class="answer pt-2">
-<p class="text-slate-600 dark:text-slate-400">Our community feature allows you to connect with like-minded students from across the country. You can join interest-based groups (Spaces), participate in discussions, collaborate on projects, and find mentors to guide you on your journey. It's a great way to network and learn from your peers.</p>
-</div>
-</div>
-<div class="faq-item border border-slate-200 dark:border-slate-800 rounded-lg p-4">
-<div class="question flex justify-between items-center cursor-pointer">
-<h3 class="text-slate-900 dark:text-slate-50 font-semibold text-lg">Can I use the Under 25 app to build my portfolio?</h3>
-<span class="material-symbols-outlined icon">expand_more</span>
-</div>
-<div class="answer pt-2">
-<p class="text-slate-600 dark:text-slate-400">Absolutely! By participating in freelance gigs, internships, and competitions, you can build a strong portfolio of your work. The app provides a platform to showcase your projects and skills to potential employers and collaborators.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
 </main>
-<footer class="bg-slate-50 dark:bg-slate-900/50">
-<div class="py-16 md:py-24 lg:py-32">
-<div class="px-4 md:px-10 lg:px-20 flex justify-center">
-<div class="w-full max-w-7xl">
-<div class="flex flex-col lg:flex-row justify-between gap-12">
-<div class="flex flex-col items-start gap-6 lg:max-w-xs xl:max-w-sm">
-<div class="flex items-center gap-2">
-<img alt="Under 25 Community Logo" class="h-10 w-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD32VrImxCVitCOMI38CbLrPI1KbuXEO8QAqgtgmHMMoV_jVCRVBfZF52hJ-WhMVI0S8jSkgZ-B7VG0uktehYpxU8EMaMgB6OOv4PBYNVV-l72lbCyBXLOWrntmjlpo3giS_qJP8NGlM3wzqSiRrbFYXuQ65WOmMl_N5XjE50EM1AUN2whr0Qbo7n-dVYFgLJNzdn12ASSi31uJrITkMO0DgnAoyZHQaj357Qx_c7162VqRETcL-GjSfbYeoHXPAxGF8hr9akP-LC8"/>
-<span class="text-slate-900 dark:text-slate-50 text-xl font-bold">Under 25 Community</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400 text-base">The ultimate app for students to earn, learn, and connect. Find opportunities, build your skills, and join a vibrant community of learners and doers.<br/>© 2024 Under 25 Community. All rights reserved.</p>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 lg:gap-16">
-<div>
-<h3 class="text-slate-900 dark:text-slate-50 font-bold text-lg mb-4">Community</h3>
-<ul class="space-y-3">
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">About Us</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">Contributors</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">Submit Story</a></li>
-</ul>
-</div>
-<div>
-<h3 class="text-slate-900 dark:text-slate-50 font-bold text-lg mb-4">Legal &amp; Support</h3>
-<ul class="space-y-3">
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">Privacy</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">Terms</a></li>
-<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white transition-colors" href="#">Contact</a></li>
-</ul>
-</div>
-<div>
-<h3 class="text-slate-900 dark:text-slate-50 font-bold text-lg mb-4">Follow</h3>
-<div class="flex flex-col gap-4">
-<a class="flex items-center gap-3 group" href="#">
-<i class="fab fa-facebook text-slate-700 dark:text-slate-300 text-base group-hover:text-primary dark:group-hover:text-white transition-colors"></i>
-<span class="text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-white transition-colors text-sm">@under25community</span>
-</a>
-<a class="flex items-center gap-3 group" href="#">
-<i class="fab fa-instagram text-slate-700 dark:text-slate-300 text-base group-hover:text-primary dark:group-hover:text-white transition-colors"></i>
-<span class="text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-white transition-colors text-sm">@under25community</span>
-</a>
-<a class="flex items-center gap-3 group" href="#">
-<i class="fab fa-youtube text-slate-700 dark:text-slate-300 text-base group-hover:text-primary dark:group-hover:text-white transition-colors"></i>
-<span class="text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-white transition-colors text-sm">@under25community</span>
-</a>
+<div class="mt-16 w-full max-w-4xl mx-auto">
+<div class="aspect-video sm:aspect-[4/1] rounded-lg overflow-hidden">
+<img alt="Advertisement" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0fh6zUVLrEnLRNwzsqK7mp7Xi6z4fA_bKhvqFQU-W8j7LENi6qrJESpY8Zqhrps2Gpf5eZFAXQrxEYIrv3hvcL1X5nBTpqC5-mCiVSdJb1k1Lpx06-crm6TZJIQoOft6xKlOoqA621IxmGPofBS1Jr-85QQHIf6zqQHkVWCKwr3tsIyj7np3vLjBTXqK9MjP7QTlhH3IFPQwtB8gcRs7OqfFliEUzi84mbleMPWJWiLb-XUZ1vPDL_f22Xdauw9JqX-Br9g5G8z8"/>
 </div>
 </div>
 </div>
+<footer class="mt-8 container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-transparent border border-slate-200 dark:border-slate-800 rounded-lg py-2 px-4 flex flex-col sm:flex-row sm:justify-between items-center text-slate-500 dark:text-slate-400 gap-2">
+<div class="text-center sm:text-left text-[11px]">
+<p>Made with love ❤️ for photophiles</p>
+<p class="mt-0.5">Copyright © 2025. All rights reserved.</p>
 </div>
-<div class="border-t border-slate-200 dark:border-slate-800 mt-12 pt-8">
-<div class="w-full text-center text-slate-600 dark:text-slate-400 text-sm">
-<p>Made with ❤️ for explorers, by explorers</p>
-</div>
-</div>
-</div>
+<div class="flex items-center gap-3">
+<a class="text-slate-400 hover-instagram transition-colors" href="#"><i class="fa-brands fa-instagram text-xs"></i></a>
+<a class="text-slate-400 hover-linkedin transition-colors" href="#"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+<a class="text-slate-400 hover-youtube transition-colors" href="#"><i class="fa-brands fa-youtube text-xs"></i></a>
+<a class="text-slate-400 hover-website transition-colors" href="#"><i class="fa-solid fa-globe text-xs"></i></a>
+<a class="text-slate-400 hover-gmail transition-colors" href="mailto:random@gmail.com"><i class="fa-solid fa-envelope text-xs"></i></a>
 </div>
 </div>
 </footer>
-</div>
-</div>
 <script>
-        const themeToggleDesktop = document.getElementById('theme-toggle-desktop');
-        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-        const htmlElement = document.documentElement;
-        function toggleTheme() {
-            htmlElement.classList.toggle('dark');
-        }
-        themeToggleDesktop.addEventListener('click', toggleTheme);
-        themeToggleMobile.addEventListener('click', toggleTheme);
-        // Mobile Menu
-        const menuToggle = document.getElementById('menu-toggle');
-        const closeMenuButton = document.getElementById('close-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-        function toggleMenu() {
-            mobileMenu.classList.toggle('open');
-        }
-        menuToggle.addEventListener('click', toggleMenu);
-        closeMenuButton.addEventListener('click', toggleMenu);
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileMenu.classList.contains('open')) {
-                    toggleMenu();
+    document.addEventListener('DOMContentLoaded', () => {
+        // Dark Mode Toggle
+        const darkModeToggles = document.querySelectorAll('#dark-mode-toggle-desktop, #dark-mode-toggle-mobile');
+        const htmlEl = document.documentElement;
+        function updateDarkModeUI(isDark) {
+            darkModeToggles.forEach(toggle => {
+                const darkIcon = toggle.querySelector('.dark-icon');
+                const lightIcon = toggle.querySelector('.light-icon');
+                const darkText = toggle.querySelector('.dark-text');
+                const lightText = toggle.querySelector('.light-text');
+                if (isDark) {
+                    darkIcon.classList.add('hidden');
+                    darkText.classList.add('hidden');
+                    lightIcon.classList.remove('hidden');
+                    lightText.classList.remove('hidden');
+                } else {
+                    darkIcon.classList.remove('hidden');
+                    darkText.classList.remove('hidden');
+                    lightIcon.classList.add('hidden');
+                    lightText.classList.add('hidden');
                 }
             });
+        }
+        const isDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (isDarkMode) {
+            htmlEl.classList.add('dark');
+        }
+        updateDarkModeUI(isDarkMode);
+        function toggleDarkMode() {
+            const isCurrentlyDark = htmlEl.classList.toggle('dark');
+            localStorage.setItem('darkMode', isCurrentlyDark);
+            updateDarkModeUI(isCurrentlyDark);
+        }
+        darkModeToggles.forEach(toggle => {
+            toggle.addEventListener('click', toggleDarkMode);
         });
-        // Main Carousel with Swipe
-        const carouselWrapper = document.getElementById('carousel-wrapper');
-        const carouselContainer = carouselWrapper.querySelector('.carousel-container');
-        const carouselItems = carouselWrapper.querySelectorAll('.carousel-item');
-        const carouselIndicators = document.getElementById('carousel-indicators');
-        let mainCurrentIndex = 0;
-        let mainIntervalId;
-        let startX, isDragging = false;
-        function updateMainCarousel() {
-            carouselContainer.style.transform = `translateX(-${mainCurrentIndex * 100}%)`;
-            if (carouselIndicators) {
-                const indicators = carouselIndicators.children;
-                for (let i = 0; i < indicators.length; i++) {
-                    const isActive = i === mainCurrentIndex;
-                    indicators[i].classList.toggle('active', isActive);
-                    const isDark = htmlElement.classList.contains('dark');
-                    const activeColor = isDark ? 'bg-white' : 'bg-black';
-                    const inactiveColor = 'bg-gray-400';
-                    indicators[i].classList.toggle(activeColor, isActive);
-                    indicators[i].classList.toggle(inactiveColor, !isActive);
-                }
-            }
-        }
-        function createMainIndicators() {
-            if (!carouselIndicators) return;
-            carouselItems.forEach((_, i) => {
-                const button = document.createElement('button');
-                button.classList.add('w-1.5', 'h-1.5', 'rounded-full', 'transition-all', 'duration-300');
-                button.addEventListener('click', () => {
-                    mainCurrentIndex = i;
-                    updateMainCarousel();
-                    resetMainInterval();
-                });
-                carouselIndicators.appendChild(button);
+      // Copy button functionality
+      const copyButton = document.querySelector('.copy-button');
+      if(copyButton) {
+        copyButton.addEventListener('click', (e) => {
+          const promptTextElement = document.getElementById('prompt-text');
+          if (promptTextElement) {
+            const promptText = promptTextElement.textContent;
+            navigator.clipboard.writeText(promptText).then(() => {
+              const copyText = copyButton.querySelector('.copy-text');
+              const copyIcon = copyButton.querySelector('.copy-icon');
+              const copiedText = copyButton.querySelector('.copied-text');
+              copyText.classList.add('hidden');
+              copyIcon.classList.add('hidden');
+              copiedText.classList.remove('hidden');
+              copiedText.classList.add('inline-flex');
+              setTimeout(() => {
+                copyText.classList.remove('hidden');
+                copyIcon.classList.remove('hidden');
+                copiedText.classList.add('hidden');
+                copiedText.classList.remove('inline-flex');
+              }, 2000);
+            }).catch(err => {
+              console.error('Failed to copy text: ', err);
             });
-        }
-        function startMainInterval() {
-           mainIntervalId = setInterval(() => {
-                mainCurrentIndex = (mainCurrentIndex + 1) % carouselItems.length;
-                updateMainCarousel();
-            }, 5000);
-        }
-        function resetMainInterval() {
-            clearInterval(mainIntervalId);
-            startMainInterval();
-        }
-        const handleDragStart = (e) => {
-            isDragging = true;
-            startX = (e.touches ? e.touches[0].pageX : e.pageX) - carouselContainer.offsetLeft;
-            carouselContainer.style.transition = 'none';
-            clearInterval(mainIntervalId);
-            carouselContainer.style.cursor = 'grabbing';
-        };
-        const handleDragMove = (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            const x = (e.touches ? e.touches[0].pageX : e.pageX) - carouselContainer.offsetLeft;
-            const walk = (x - startX);
-            const currentTranslate = -mainCurrentIndex * carouselContainer.offsetWidth;
-            carouselContainer.style.transform = `translateX(${currentTranslate + walk}px)`;
-        };
-        const handleDragEnd = (e) => {
-            if (!isDragging) return;
-            isDragging = false;
-            carouselContainer.style.cursor = 'grab';
-            const currentTranslate = new WebKitCSSMatrix(window.getComputedStyle(carouselContainer).transform).m41;
-            const threshold = carouselItems[0].offsetWidth * 0.35;
-            const originalTranslate = -mainCurrentIndex * carouselItems[0].offsetWidth;
-            const diff = currentTranslate - originalTranslate;
-            if (diff < -threshold && mainCurrentIndex < carouselItems.length - 1) {
-                mainCurrentIndex++;
-            } else if (diff > threshold && mainCurrentIndex > 0) {
-                mainCurrentIndex--;
-            }
-            carouselContainer.style.transition = 'transform 0.5s ease-in-out';
-            carouselContainer.style.transform = `translateX(-${mainCurrentIndex * 100}%)`;
-            updateMainCarousel();
-            startMainInterval();
-        };
-        carouselContainer.addEventListener('mousedown', handleDragStart);
-        carouselContainer.addEventListener('touchstart', handleDragStart, { passive: true });
-        carouselContainer.addEventListener('mousemove', handleDragMove);
-        carouselContainer.addEventListener('touchmove', handleDragMove, { passive: false });
-        document.addEventListener('mouseup', handleDragEnd);
-        carouselContainer.addEventListener('mouseleave', handleDragEnd);
-        carouselContainer.addEventListener('touchend', handleDragEnd);
-        createMainIndicators();
-        updateMainCarousel();
-        startMainInterval();
-        // Story Carousel with Swipe
-        const storyCarouselContainer = document.getElementById('story-carousel-container');
-        if (storyCarouselContainer) {
-            const storyCards = storyCarouselContainer.querySelectorAll('.story-card');
-            let storyCurrentIndex = 0;
-            let storyIntervalId;
-            let storyStartX, isStoryDragging = false;
-            function showStoryCard(index) {
-                storyCards.forEach((card, i) => {
-                    card.classList.toggle('active', i === index);
-                });
-            }
-            function nextStoryCard() {
-                storyCurrentIndex = (storyCurrentIndex + 1) % storyCards.length;
-                showStoryCard(storyCurrentIndex);
-            }
-            function prevStoryCard() {
-                storyCurrentIndex = (storyCurrentIndex - 1 + storyCards.length) % storyCards.length;
-                showStoryCard(storyCurrentIndex);
-            }
-            function startStoryInterval() {
-                storyIntervalId = setInterval(nextStoryCard, 5000);
-            }
-            function stopStoryInterval() {
-                clearInterval(storyIntervalId);
-            }
-            storyCarouselContainer.addEventListener('mousedown', (e) => {
-                isStoryDragging = true;
-                storyStartX = e.pageX;
-                stopStoryInterval();
-            });
-            storyCarouselContainer.addEventListener('touchstart', (e) => {
-                isStoryDragging = true;
-                storyStartX = e.touches[0].pageX;
-                stopStoryInterval();
-            });
-            const handleStoryDragEnd = (e) => {
-                if (!isStoryDragging) return;
-                isStoryDragging = false;
-                const endX = e.pageX || e.changedTouches[0].pageX;
-                const diff = storyStartX - endX;
-                if (diff > 50) { // Swipe left
-                    nextStoryCard();
-                } else if (diff < -50) { // Swipe right
-                    prevStoryCard();
-                }
-                startStoryInterval();
-            };
-            storyCarouselContainer.addEventListener('mouseup', handleStoryDragEnd);
-            storyCarouselContainer.addEventListener('mouseleave', (e) => {
-                if (isStoryDragging) handleStoryDragEnd(e);
-            });
-            storyCarouselContainer.addEventListener('touchend', handleStoryDragEnd);
-            showStoryCard(storyCurrentIndex);
-            startStoryInterval();
-        }
-        // FAQ Accordion
-        const faqContainer = document.getElementById('faq-container');
-        if (faqContainer) {
-            const faqItems = faqContainer.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.question');
-                question.addEventListener('click', () => {
-                    const currentlyActive = document.querySelector('.faq-item.active');
-                    if (currentlyActive && currentlyActive !== item) {
-                        currentlyActive.classList.remove('active');
-                    }
-                    item.classList.toggle('active');
-                });
-            });
-        }
-        // Statistics Counter Animation
-        function animateStats() {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const suffix = counter.getAttribute('data-suffix') || '';
-                const start = +counter.getAttribute('data-start') || 0;
-                let current = start;
-                const duration = 2000;
-                const stepTime = 20; 
-                const steps = duration / stepTime;
-                const increment = (target - start) / steps;
-                const updateCount = () => {
-                    current += increment;
-                    if (current < target) {
-                        counter.innerText = Math.ceil(current).toLocaleString() + (start > 0 ? suffix : '');
-                        setTimeout(updateCount, stepTime);
-                    } else {
-                        counter.innerText = target.toLocaleString() + suffix;
-                    }
-                };
-                 if (start > 0) {
-                     counter.innerText = start.toLocaleString() + suffix;
-                 } else {
-                     counter.innerText = '0';
-                 }
-                updateCount();
-            });
-        }
-        const statsSection = document.getElementById('stats-counter');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateStats();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        if (statsSection) {
-            observer.observe(statsSection);
-        }
-    </script>
+          }
+        });
+      }
+      // Share button functionality
+      const shareButtons = document.querySelectorAll('.share-button');
+      shareButtons.forEach(button => {
+        button.addEventListener('click', async (e) => {
+          e.preventDefault();
+          const shareData = {
+            title: 'AI Image Prompts',
+            text: 'Check out this awesome AI image prompt!',
+            url: window.location.href,
+          };
+          try {
+            await navigator.share(shareData);
+          } catch (err) {
+            console.error('Share failed:', err);
+          }
+        });
+      });
+    });
+  </script>
 </body></html>
